@@ -1,5 +1,5 @@
 body {
-    background-image: url("../imagenes/S1.jpg");
+    background-image:url('../images/fondo.jpg') ;
     background-position: center;
     background-repeat:no-repeat;
     background-attachment:fixed;
@@ -14,8 +14,8 @@ p {
 
 
 :root{
-    --morado:#3d85c6;
-    --moradoObscuro:#6fa8dc;
+    --morado:#131313;
+    --moradoObscuro:#444444;
     --moradoGris:#0b5394;
     --blanco:#fff;
     --fuente:'Quicksand',sans-serif;
@@ -39,11 +39,11 @@ p {
         width: 95%;
     }
     .imagen-formulario{
-        background-image: url('../imagenes/F1.jpg');
+        background-image: url('../images/logo1.png');
         background-position: center center;
         background-size: cover;
         height: 200px;
-      flex: 0 0 calc(60%);
+      flex: 0 0 calc(70%);
       position: relative;
     }
     .imagen-formulario::before{

@@ -1,38 +1,45 @@
-@extends('layouts.plantilla')
-@section('titulo','Inicio de Sesión')
-@section('login')
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inicio de Sesión</title>
+        @vite(['resources/js/app.js']){{-- Enlace Bootstrap --}}
+        {{-- CSS de google --}}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+        {{--  --}}
 
-    <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh; background-color: black;">
-        <div class="card text-white bg-dark" style="width: 400px;">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="{{ asset('images/logo1.png') }}" class="img-fluid" alt="Imagen de login">
-                    </div>
-                    <div class="col-md-6">
-                        <form>
-                            @csrf <!-- Token de seguridad de Laravel -->
-                            <div class="form-group">
-                                <label for="email">Correo electrónico</label>
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Contraseña</label>
-                                <input id="password" type="password" class="form-control" name="password" required>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="remember">Recordar</label>
-                                </div>
-                            </div>
-                            <div class="form-group mb-0">
-                                <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">{{-- CSS estilos --}}
+
+    </head>
+    <body>
+
+
+        <div class="contenedor-formulario contenedor">
+            <div class="imagen-formulario">
+
             </div>
-        </div>
-    </div>
-@endsection
+            
+            <form class="formulario">
+                <div class="texto-formulario">
+                    <h2 class="fw-bold font-italic">BIENVENIDO</h2>
+                    <p>Inicia sesión</p>
+                </div>
+
+                <div class="input">
+                    <label>Usuario: </label>
+                    <input placeholder="Correo de Usuario" type="text" name="txtusuario">
+                </div>
+                <div class="input">
+                    <label>Contraseña: </label>
+                    <input placeholder="Ingresa tu contraseña" type="password" name="txtpass">
+                </div>
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary" type="submit">Entrar</button>
+                </div>
+            </form>
+    </body>
+</html>
