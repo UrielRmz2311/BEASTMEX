@@ -7,5 +7,7 @@ use App\Http\Requests\Validador;
 
 class Controlador extends Controller
 {
-    //
+    public function FormularioProveedores(){
+        return view ('Login');
+    }
 }
