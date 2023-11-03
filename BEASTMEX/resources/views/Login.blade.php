@@ -38,7 +38,7 @@
                     <input placeholder="Ingresa tu contraseña" type="password" name="txtpass">
                 </div>
                 <div class="text-center mt-3">
-                    <button class="btn btn-primary" type="submit">Entrar</button>
+                    <a class="btn btn-warning" type="button" href="/inicio" >Entrar</a>
                 </div>
             </form>
     </body>
