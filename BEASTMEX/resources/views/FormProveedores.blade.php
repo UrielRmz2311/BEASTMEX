@@ -3,6 +3,7 @@
 @section('titulo','Registro Proveedores')
 
 @section('body')
+
 <div class="container mt-4">
     <form class="row g-3">
         <div class="col-md-6">
