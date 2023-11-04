@@ -18,3 +18,5 @@ use App\Http\Controllers\Controlador;
 Route::get('/', function () {
     return view('Login');
 });
+
+Route::view('/prov','FormProveedores')->name('RutaProv');
