@@ -1,0 +1,12 @@
+.navbar-text {
+    font-size: 24px; /* Tamaño del texto del reloj y la fecha */
+  }
+
+  .cerrarsesion img {
+    width: 30px; /* Tamaño de la imagen de cerrar sesión */
+    height: 30px;
+    }
+
+    .margin-right-10 {
+    margin-right: 50px; /* Margen entre las dos div */
+    }

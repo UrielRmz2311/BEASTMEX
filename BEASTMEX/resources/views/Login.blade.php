@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="{{ asset('images/logocompu.png') }}" type="image/x-icon">
         <title>Inicio de Sesión</title>
         @vite(['resources/js/app.js']){{-- Enlace Bootstrap --}}
         {{-- CSS de google --}}
@@ -38,7 +39,7 @@
                     <input placeholder="Ingresa tu contraseña" type="password" name="txtpass">
                 </div>
                 <div class="text-center mt-3">
-                    <button class="btn btn-primary" type="submit">Entrar</button>
+                    <a class="btn btn-warning" type="button" href="/inicio" >Entrar</a>
                 </div>
             </form>
     </body>

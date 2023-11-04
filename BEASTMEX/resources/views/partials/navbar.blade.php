@@ -1,36 +1,66 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
+<link rel="stylesheet" href="{{ asset('css/navbar.css') }}">{{-- CSS estilos --}}
+<nav class="navbar bg-dark bg-body-tertiary" data-bs-theme="dark">
+  <div class="container">
+
+    <a class="navbar-brand" href="#">
+      <img src="{{ asset('images/logocompu.png') }}" width="60" height="40" class="d-inline-block align-text-top">
+      <img src="{{ asset('images/letras.png') }}" width="200" height="40">
+    </a>
+
+    <div class="navbar-text mx-auto text-warning fw-bold">
+      <span id="clock"></span>
     </div>
-  </nav>
+
+    <div class="navbar-text text-right text-warning fw-bold margin-right-10">
+      <?php echo date("d/m/Y"); ?>
+    </div>
+
+    <a class="cerrarsesion" href="/">
+      <img src="{{ asset('images/boton.png') }}">
+    </a>
+    
+  </div>
+</nav>
+  
+  <script>
+    // Función para actualizar el reloj cada segundo
+    function updateClock() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+      // Asegúrate de que los números siempre tengan dos dígitos
+      hours = hours.toString().padStart(2, '0');
+      minutes = minutes.toString().padStart(2, '0');
+      seconds = seconds.toString().padStart(2, '0');
+      // Actualiza el elemento con el id "clock"
+      document.getElementById('clock').textContent = hours + ':' + minutes + ':' + seconds;
+    }
+  
+    // Llama a la función para actualizar el reloj cada segundo
+    setInterval(updateClock, 1000);
+  </script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cerrarSesionBtn = document.querySelector('.cerrarsesion');
+      cerrarSesionBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        Swal.fire({
+          title: '¿Seguro que quieres cerrar sesión?',
+          icon: 'question',
+          iconHtml: '?',
+          confirmButtonText: 'Sí, cerrar',
+          cancelButtonText: 'No, regresar',
+          showCancelButton: true,
+          showCloseButton: true
+        }).then((result) => {
+          // Si el usuario hace clic en "Sí, cerrar", redirige a la página principal
+          if (result.isConfirmed) {
+            window.location.href = cerrarSesionBtn.href;
+          }
+        });
+      });
+    });
+  </script>
+>>>>>>> main
