@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('titulo','Registro Proveedores')
+@section('titulo','Registro de Proveedores')
 
 @section('body')
 

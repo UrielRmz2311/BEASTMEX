@@ -30,4 +30,7 @@ Route::post('/RegistroProv',[Controlador::class,'RegistroProv'])->name('registra
 Route::post('/ModificarUsu',[Controlador::class,'ModificarUsu'])->name('modificar');
 Route::post('/EliminarUsu',[Controlador::class,'EliminarUsu'])->name('eliminar');
 Route::post('/AgregarUsu',[Controlador::class,'AgregarUsu'])->name('agregar');
+Route::post('/ModificarProv',[Controlador::class,'ModificarProv'])->name('modificar2');
+Route::post('/EliminarProv',[Controlador::class,'EliminarProv'])->name('eliminar2');
+Route::post('/AgregarProv',[Controlador::class,'AgregarProv'])->name('agregar2');
 

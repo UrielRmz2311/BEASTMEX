@@ -47,6 +47,22 @@ class Controlador extends Controller
 
         $validatedData = $req->validate($req->rulesFormulario3());
 
-        return redirect('/conusu')->with('confirmacion2','Usuario agregado correctamente');
+        return redirect('/conusu')->with('confirmacion4','Usuario agregado correctamente');
+    }
+    public function ModificarProv(Validador $req){
+
+        $validatedData = $req->validate($req->rulesFormulario4());
+
+        return redirect('/conusu')->with('confirmacion5','Usuario modificado correctamente');
+    }
+    public function EliminarProv(Validador $req){
+
+        return redirect('/conusu')->with('confirmacion6','Usuario eliminado correctamente');
+    }
+    public function AgregarProv(Validador $req){
+
+        $validatedData = $req->validate($req->rulesFormulario5());
+
+        return redirect('/conusu')->with('confirmacion7','Usuario agregado correctamente');
     }
 }

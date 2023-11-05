@@ -56,4 +56,22 @@ class Validador extends FormRequest
             'txtPue' => 'required'
         ];
     }
+    public function rulesFormulario4(): array
+    {
+        return [
+            'txtNom' => 'required',
+            'txtCon' => 'required',
+            'txtCor' => 'required',
+            'txtPue' => 'required'
+        ];
+    }
+    public function rulesFormulario5(): array
+    {
+        return [
+            'txtNom' => 'required',
+            'txtCon' => 'required',
+            'txtCor' => 'required',
+            'txtPue' => 'required'
+        ];
+    }
 }

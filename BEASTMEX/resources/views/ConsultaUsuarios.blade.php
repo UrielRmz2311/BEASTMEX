@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('titulo','Registro Proveedores')
+@section('titulo','Consulta de Usuarios')
 
 @section('body')
 <div class="modal fade" id="ModificarInfo" tabindex="-1" aria-labelledby="ModificarInformacion" aria-hidden="true">
@@ -105,11 +105,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                @if (session()->has('confirmacion2'))
+                @if (session()->has('confirmacion4'))
                     <script>
                         Swal.fire(
                         'Todo Correcto',
-                        '{!! session('confirmacion2') !!}',
+                        '{!! session('confirmacion4') !!}',
                         'success'
                         ) 
                     </script>
