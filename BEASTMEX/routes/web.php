@@ -34,3 +34,7 @@ Route::post('/ModificarProv',[Controlador::class,'ModificarProv'])->name('modifi
 Route::post('/EliminarProv',[Controlador::class,'EliminarProv'])->name('eliminar2');
 Route::post('/AgregarProv',[Controlador::class,'AgregarProv'])->name('agregar2');
 
+// routes/web.php
+
+Route::get('/generar-pdf/{tablaHTML}', 'PDFController@generarPDF')->name('generarPDF');
+

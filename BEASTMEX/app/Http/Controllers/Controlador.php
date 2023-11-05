@@ -53,7 +53,7 @@ class Controlador extends Controller
 
         $validatedData = $req->validate($req->rulesFormulario4());
 
-        return redirect('/conusu')->with('confirmacion5','Usuario modificado correctamente');
+        return redirect('/conusu')->with('confirmacion5','Proveedor modificado correctamente');
     }
     public function EliminarProv(Validador $req){
 
