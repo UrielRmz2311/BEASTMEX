@@ -39,4 +39,8 @@ class Controlador extends Controller
 
         return redirect('/conusu')->with('confirmacion2','Usuario modificado correctamente');
     }
+    public function EliminarUsu(Validador $req){
+
+        return redirect('/conusu')->with('confirmacion3','Usuario eliminado correctamente');
+    }
 }

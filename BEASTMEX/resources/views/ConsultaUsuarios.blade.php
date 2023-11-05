@@ -3,7 +3,7 @@
 @section('titulo','Registro Proveedores')
 
 @section('body')
-<div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+<div class="modal fade" id="ModificarInfo" tabindex="-1" aria-labelledby="ModificarInformacion" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -13,11 +13,11 @@
             <div class="modal-body">
                 @if (session()->has('confirmacion2'))
                     <script>
-                    Swal.fire(
-                    'Todo Correcto',
-                    '{!! session('confirmacion2') !!}',
-                    'success'
-                    ) 
+                        Swal.fire(
+                        'Todo Correcto',
+                        '{!! session('confirmacion2') !!}',
+                        'success'
+                        ) 
                     </script>
                 @endif
 
@@ -60,6 +60,36 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="EliUsu" tabindex="-1" aria-labelledby="EliminarUsuario" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarModalLabel">Eliminar Uusario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if (session()->has('confirmacion3'))
+                    <script>
+                    Swal.fire(
+                    'Todo Correcto',
+                    '{!! session('confirmacion3') !!}',
+                    'success'
+                    ) 
+                    </script>
+                @endif
+                <form method="POST" action="/EliminarUsu" class="text-center">
+                    @csrf
+                    <label>¿Seguro que desea eliminar al usuario? </label>
+                    <div class="modal-footer mt-4">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Eliminar Usuario</button>
                     </div>
                 </form>
             </div>
@@ -119,9 +149,9 @@
             <a class="btn btn-secondary" href="/"> < Regresar </a>
             <div>
                 <a class="btn btn-success" href="/">Agregar</a>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarModal">Modificar</button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModificarInfo">Modificar</button>
 
-                <a class="btn btn-danger" href="/">Eliminar</a>
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#EliUsu">Eliminar</a>
             </div>
         </div>
 </div>
