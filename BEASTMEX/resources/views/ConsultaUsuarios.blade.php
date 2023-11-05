@@ -97,6 +97,70 @@
     </div>
 </div>
 
+<div class="modal fade" id="AgUsu" tabindex="-1" aria-labelledby="AgregarUsuario" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarModalLabel">Agregar Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if (session()->has('confirmacion2'))
+                    <script>
+                        Swal.fire(
+                        'Todo Correcto',
+                        '{!! session('confirmacion2') !!}',
+                        'success'
+                        ) 
+                    </script>
+                @endif
+
+                @if($errors->any())
+                    <script>
+                        Swal.fire(
+                            'Falta diligenciar correctamente algunos campos...',
+                            '{{$errors->first()}}',
+                            'warning'
+                        )
+                    </script>
+                @endif
+                <form method="POST" action="/AgregarUsu">
+                    @csrf
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-control" name="txtNom" placeholder="Nombre" value="{{ old('txtNom')}}">
+                        <p class="fw-bold text-danger"> {{ $errors->first('txtNom') }} </p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" name="txtCon" placeholder="Contraseña" value="{{ old('txtCon')}}">
+                        <p class="fw-bold text-danger"> {{ $errors->first('txtCon') }} </p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Correo electronico</label>
+                        <input type="text" class="form-control" name="txtCor" placeholder="Correo electronico" value="{{ old('txtCor')}}">
+                        <p class="fw-bold text-danger"> {{ $errors->first('txtCor') }} </p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Puesto</label>
+                        <select class="form-select" name="txtPue" value="{{ old('txtPue')}}">
+                            <option value="Gerente">Gerente</option>
+                            <option value="Almacen">Almacen</option>
+                            <option value="Ventas">Ventas</option>
+                            <option value="Compras">Compras</option>
+                        </select>
+                        <p class="fw-bold text-danger"> {{ $errors->first('txtPue') }} </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container mt-4">
         <div class="container mt-4">
             <div class="row">
@@ -146,11 +210,10 @@
             </div>
         </div>
         <div class="d-flex justify-content-between">
-            <a class="btn btn-secondary" href="/"> < Regresar </a>
+            <a class="btn btn-secondary" href="#"> < Regresar </a>
             <div>
-                <a class="btn btn-success" href="/">Agregar</a>
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AgUsu">Agregar</button>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModificarInfo">Modificar</button>
-
                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#EliUsu">Eliminar</a>
             </div>
         </div>

@@ -87,7 +87,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-between">
-            <a class="btn btn-secondary" href="/"> < Regresar </a>
+            <a class="btn btn-secondary" href="#"> < Regresar </a>
             <div>
                 <button type="submit" class="btn btn-success">Agregar</button>
                 <a class="btn btn-danger" href="/">Cancelar</a>

@@ -43,4 +43,10 @@ class Controlador extends Controller
 
         return redirect('/conusu')->with('confirmacion3','Usuario eliminado correctamente');
     }
+    public function AgregarUsu(Validador $req){
+
+        $validatedData = $req->validate($req->rulesFormulario3());
+
+        return redirect('/conusu')->with('confirmacion2','Usuario agregado correctamente');
+    }
 }

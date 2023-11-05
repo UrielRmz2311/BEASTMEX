@@ -35,11 +35,7 @@ class Validador extends FormRequest
             'elementos2' => 'required|accepted',
             'elementos3' => 'required|accepted',
             'elementos4' => 'required|accepted',
-            'txtDireccion' => 'required',
-            'txtNombre' => 'required',
-            'txtContra' => 'required',
-            'txtCorreo' => 'required',
-            'txtPuesto' => 'required'
+            'txtDireccion' => 'required'
         ];
     }
     public function rulesFormulario2(): array
@@ -49,6 +45,15 @@ class Validador extends FormRequest
             'txtContra' => 'required',
             'txtCorreo' => 'required',
             'txtPuesto' => 'required'
+        ];
+    }
+    public function rulesFormulario3(): array
+    {
+        return [
+            'txtNom' => 'required',
+            'txtCon' => 'required',
+            'txtCor' => 'required',
+            'txtPue' => 'required'
         ];
     }
 }
