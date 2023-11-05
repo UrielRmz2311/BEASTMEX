@@ -6,6 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @vite(['resources/js/app.js'])
     <title>@yield('titulo')</title>
+    <link rel="stylesheet" href="{{ asset('css/estilosinicio.css') }}">{{-- CSS estilos --}}
     
 </head>
 <body>

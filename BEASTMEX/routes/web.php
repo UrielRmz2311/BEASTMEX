@@ -15,6 +15,5 @@ use App\Http\Controllers\Controlador;
 |
 */
 
-Route::get('/', function () {
-    return view('Login');
-});
+Route::get('/', [Controlador::class,'metodoInicio'])->name('Iniciodesesion');
+Route::post('/metodologin', [Controlador::class, 'metodoLogin']);
