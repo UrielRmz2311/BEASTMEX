@@ -182,7 +182,7 @@
         <div class="d-flex justify-content-between">
             <a class="btn btn-secondary" href="#"> < Regresar </a>
             <div>
-                <button id="generar-y-descargar-pdf" class="btn btn-danger">Generar y Descargar PDF</button>                
+                <button class="btn btn-danger">Descargar PDF</button>                
                 <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AgProv">Agregar</button>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modificarprov">Modificar</button>
                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#EliProv">Eliminar</button>
