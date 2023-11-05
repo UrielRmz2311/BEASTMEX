@@ -27,8 +27,16 @@ class Controlador extends Controller
     }
     public function RegistroProv(Validador $req){
 
+        $validatedData = $req->validate($req->rulesFormulario1());
         $prov = $req->input('txtProveedor');
 
         return redirect('/prov')->with('confirmacion','Proveedor '. $prov . ' registrado correctamente');
+    }
+
+    public function ModificarUsu(Validador $req){
+
+        $validatedData = $req->validate($req->rulesFormulario2());
+
+        return redirect('/conusu')->with('confirmacion2','Usuario modificado correctamente');
     }
 }

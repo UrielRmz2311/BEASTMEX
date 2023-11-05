@@ -27,4 +27,5 @@ Route::get('/conti', [Controlador::class,'Conticket'])->name('RutaContick');
 Route::get('/conticks', [Controlador::class,'ConTickets'])->name('RutaConTickets');
 
 Route::post('/RegistroProv',[Controlador::class,'RegistroProv'])->name('registrar');
+Route::post('/ModificarUsu',[Controlador::class,'ModificarUsu'])->name('modificar');
 

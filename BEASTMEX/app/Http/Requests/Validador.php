@@ -19,7 +19,7 @@ class Validador extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rulesFormulario1(): array
     {
         return [
             'txtProveedor' => 'required',
@@ -35,7 +35,20 @@ class Validador extends FormRequest
             'elementos2' => 'required|accepted',
             'elementos3' => 'required|accepted',
             'elementos4' => 'required|accepted',
-            'txtDireccion' => 'required'
+            'txtDireccion' => 'required',
+            'txtNombre' => 'required',
+            'txtContra' => 'required',
+            'txtCorreo' => 'required',
+            'txtPuesto' => 'required'
+        ];
+    }
+    public function rulesFormulario2(): array
+    {
+        return [
+            'txtNombre' => 'required',
+            'txtContra' => 'required',
+            'txtCorreo' => 'required',
+            'txtPuesto' => 'required'
         ];
     }
 }
