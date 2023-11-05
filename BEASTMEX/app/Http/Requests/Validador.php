@@ -22,7 +22,20 @@ class Validador extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'txtProveedor' => 'required',
+            'txtProducto1' => 'required',
+            'txtCantidad1' => 'required',
+            'txtProducto2' => 'required',
+            'txtCantidad2' => 'required',
+            'txtProducto3' => 'required',
+            'txtCantidad3' => 'required',
+            'txtProducto4' => 'required',
+            'txtCantidad4' => 'required',
+            'elementos1' => 'required|accepted',
+            'elementos2' => 'required|accepted',
+            'elementos3' => 'required|accepted',
+            'elementos4' => 'required|accepted',
+            'txtDireccion' => 'required'
         ];
     }
 }
