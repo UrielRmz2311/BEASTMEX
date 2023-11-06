@@ -1,13 +1,119 @@
-<?php
-
-namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\Validador;
 use Illuminate\Support\Facades\Redirect;
 
-class Controlador extends Controller
-{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function mostrarFormulario()
     {
         return view('RegistroUsuarios');
@@ -92,6 +198,7 @@ class Controlador extends Controller
 
         return redirect('/CCG')->with('Confirmacion','Compra eliminada correctamente');
     }
+
     public function FormularioProveedores(){
         return view ('FormProveedores');
     }
@@ -192,5 +299,3 @@ class Controlador extends Controller
             return redirect('/')->with('mensaje', 'El usuario no es válido. Favor de inténtalo de nuevo !!!');
         }
     }
-}
-

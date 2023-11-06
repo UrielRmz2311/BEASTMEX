@@ -19,7 +19,6 @@ class Validador extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-
     public function rulesFormRegisUsu(): array
     {
         return [
@@ -163,4 +162,3 @@ class Validador extends FormRequest
     }
 
 }
-
