@@ -25,6 +25,9 @@ class Controlador extends Controller
     public function ConTickets(){
         return view ('ConsultaTickets');
     }
+    public function GananciaVenta(){
+        return view ('GananciasVentas');
+    }
     public function RegistroProv(Validador $req){
 
         $validatedData = $req->validate($req->rulesFormulario1());

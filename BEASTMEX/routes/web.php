@@ -25,6 +25,7 @@ Route::get('/conprov', [Controlador::class,'ConProveedores'])->name('RutaConProv
 Route::get('/tickven', [Controlador::class,'Ticketsventa'])->name('RutaTicketVen');
 Route::get('/conti', [Controlador::class,'Conticket'])->name('RutaContick');
 Route::get('/conticks', [Controlador::class,'ConTickets'])->name('RutaConTickets');
+Route::get('/gananven', [Controlador::class,'GananciaVenta'])->name('RutaGanancias');
 
 Route::post('/RegistroProv',[Controlador::class,'RegistroProv'])->name('registrar');
 Route::post('/ModificarUsu',[Controlador::class,'ModificarUsu'])->name('modificar');
