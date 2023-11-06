@@ -19,12 +19,12 @@ class Controlador extends Controller
     public function guardarD(Validador $req){
         $Venta=$req->input("txtventa");
         $validatedData = $req->validate($req->rulesModalAgreVen());
-    return redirect("/CVG")->with("Confirmacion", "La venta " . $Venta . " se ha guardado correctamente");
+        return redirect("/CVG")->with("Confirmacion1", "La venta " . $Venta . " se ha guardado correctamente");
     }
     public function modificarD(Validador $req){
         $Venta=$req->input("txtventa");
         $validatedData = $req->validate($req->rulesModalModiVen());
-        return redirect("/CVG")->with("Confirmacion", "La venta " . $Venta . " se ha modificado correctamente");
+        return redirect("/CVG")->with("Confirmacion2", "La venta " . $Venta . " se ha modificado correctamente");
     }
     public function EliminarD(Validador $req){
 
@@ -107,12 +107,12 @@ class Controlador extends Controller
     public function guardarC(Validador $req){
         $Compra=$req->input("txtproducto");
         $validatedData = $req->validate($req->rulesModalAgreCom());
-        return redirect("/CCG")->with("Confirmacion", "La compra " . $Compra . " se ha guardado correctamente");
+        return redirect("/CCG")->with("Confirmacion3", "La compra " . $Compra . " se ha guardado correctamente");
     }
     public function modificarC(Validador $req){
         $Compra=$req->input("txtproduct");
         $validatedData = $req->validate($req->rulesModalModiCom());
-        return redirect("/CCG")->with("Confirmacion", "La compra " . $Compra . " se ha modificado correctamente");
+        return redirect("/CCG")->with("Confirmacion4", "La compra " . $Compra . " se ha modificado correctamente");
     }
     public function EliminarC(Validador $req){
 

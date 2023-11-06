@@ -54,11 +54,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    @if (session()->has('Confirmacion'))
+                    @if (session()->has('Confirmacion3'))
                     <script>
                         Swal.fire(
                             'La compra {{ old('txtproducto') }} se guardó correctamente',
-                            '{!! session('Confirmacion') !!}',
+                            '{!! session('Confirmacion3') !!}',
                             'success'
                         );
                     </script>
@@ -113,11 +113,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    @if (session()->has('Confirmacion'))
+                    @if (session()->has('Confirmacion4'))
                     <script>
                         Swal.fire(
                             'La compra {{ old('txtproducto') }} se ha modificado correctamente',
-                            '{!! session('Confirmacion') !!}',
+                            '{!! session('Confirmacion4') !!}',
                             'success'
                         );
                     </script>

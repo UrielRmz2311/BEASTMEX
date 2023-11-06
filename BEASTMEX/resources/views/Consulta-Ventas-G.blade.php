@@ -55,11 +55,11 @@ h2{
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    @if (session()->has('Confirmacion'))
+                    @if (session()->has('Confirmacion1'))
                     <script>
                         Swal.fire(
                             'La venta {{ old('txtventa') }} se guardó correctamente',
-                            '{!! session('Confirmacion') !!}',
+                            '{!! session('Confirmacion1') !!}',
                             'success'
                         );
                     </script>
@@ -111,11 +111,11 @@ h2{
                 </div>
                 <div class="modal-body">
 
-                    @if (session()->has('Confirmacion'))
+                    @if (session()->has('Confirmacion2'))
                     <script>
                         Swal.fire(
                             'La venta {{ old('txtventa') }} se ha modificado correctamente',
-                            '{!! session('Confirmacion') !!}',
+                            '{!! session('Confirmacion2') !!}',
                             'success'
                         );
                     </script>
@@ -183,11 +183,11 @@ h2{
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success" data-dismiss="modal">Aceptar</button>
                         <button type="button" class="btn btn-danger"  data-bs-dismiss="modal">Cancelar</button>
-                </div>
+                    </div>
                     </form>
+                </div>
             </div>
         </div>
-    </div>
 </div>
 </div>
 @endsection
