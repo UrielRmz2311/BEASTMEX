@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="input-group mb-3">
-                        <input type="search" class="form-control me-2 ms-auto" style="max-width: 200px;" placeholder="Buscar">
+                        <input type="search" class="form-control me-2 ms-auto" style="max-width: 200px;" placeholder="Buscador">
                         <button class="btn btn-outline-secondary" type="button">Buscar</button>
                     </div>
                     <table class="table table-bordered table-striped">
