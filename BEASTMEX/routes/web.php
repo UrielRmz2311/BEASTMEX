@@ -16,4 +16,7 @@ use App\Http\Controllers\Controlador;
 */
 
 Route::get('/', [Controlador::class,'metodoInicio'])->name('Iniciodesesion');
+Route::get('/almacen', [Controlador::class,'metodoalmacen'])->name('Inicioalmacen');
+Route::get('/gerente', [Controlador::class,'metodogerente']);
+
 Route::post('/metodologin', [Controlador::class, 'metodoLogin']);

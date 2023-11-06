@@ -50,7 +50,9 @@
                 </div>
                 <div class="text-center mt-3">
                     <button class="btn btn-warning fw-bold" type="submit">Entrar</button>
-                </div>
+                    <a class="btn btn-danger mx-2 fw-bold" type="Button" href="/Olvide">Olvide mi Contraseña</a>    
+                 </div>
             </form>
+            
     </body>
 </html>

@@ -23,7 +23,7 @@
           <img src="{{ asset('images/usuarios.png') }}" height="200" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Registrar Usuario</h5>
-            <a href="#" class="btn btn-warning" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="/RegistroUsu" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@
           <img src="{{ asset('images/consulta.png') }}" height="200" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Consultar Usuarios</h5>
-            <a href="#" class="btn btn-warning" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="/conusu" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
           <img src="{{ asset('images/almacen.png') }}" height="200" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Almacén</h5>
-            <a href="#" class="btn btn-warning" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="/almacen" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
           <img src="{{ asset('images/reportes.jpg') }}" height="200" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Reportes</h5>
-            <a href="#" class="btn btn-warning" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="/RCVG" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
           <img src="{{ asset('images/producto.png') }}" height="200" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Análisis de Ventas</h5>
-            <a href="#" class="btn btn-warning" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="/CVG" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@
           <img src="{{ asset('images/compras.png') }}" height="200" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Análisis de Compras</h5>
-            <a href="#" class="btn btn-warning" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="/CCG" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>

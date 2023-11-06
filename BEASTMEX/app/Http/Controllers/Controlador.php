@@ -13,6 +13,15 @@ class Controlador extends Controller
         return view('Login');
     }
 
+    public function metodoalmacen(){
+        return view('almacen');
+    }
+
+    
+    public function metodogerente(){
+        return view('iniciogerente');
+    }
+
     public function metodoLogin(Validador $req){
         $correo = $req->input('txtusuario');
         
@@ -29,5 +38,6 @@ class Controlador extends Controller
             return redirect('/')->with('mensaje', 'El usuario no es válido. Favor de inténtalo de nuevo !!!');
         }
     }
+
     
 }

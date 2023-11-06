@@ -24,7 +24,7 @@
           <img src="{{ asset('images/consulta.jpg') }}" height="230" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Consultar Productos</h5>
-            <a href="#" class="btn btn-warning" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="/CPA" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@
           <img src="{{ asset('images/factura.png') }}" height="230" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Generador de Ticket</h5>
-            <a href="#" class="btn btn-warning" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="tickven" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@
           <img src="{{ asset('images/ventas.jpg') }}" height="230" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Cálculo de Ganancias</h5>
-            <a href="#" class="btn btn-warning" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="/gananven" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@
           <img src="{{ asset('images/consultaf.png') }}" height="230" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Consultar Tickets</h5>
-            <a href="#" class="btn btn-warning" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="/conticks" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>
