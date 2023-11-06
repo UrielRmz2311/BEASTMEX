@@ -45,7 +45,7 @@ h2{
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminarModal">
         Eliminar
     </button>
-    <a href="{{ route('Login') }}" class="btn btn-warning">Regresar a la Página Principal</a>
+    <a href="/gerente" class="btn btn-warning">Regresar a la Página Principal</a>
 
     <div class="modal" id="agregarModal" aria-labelledby="agregarModal" aria-hidden="true">
         <div class="modal-dialog">

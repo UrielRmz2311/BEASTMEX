@@ -44,7 +44,7 @@
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminarModal">
         Eliminar
     </button>
-    <a href="{{ route('Login') }}" class="btn btn-warning">Regresar a la Página Principal</a>
+    <a href="/gerente" class="btn btn-warning">Regresar a la Página Principal</a>
 <!-- Modales -->
 <div class="modal" id="agregarModal" aria-labelledby="agregarModal" aria-hidden="true">
         <div class="modal-dialog">
@@ -133,32 +133,32 @@
                     </script>
                     @endif
                     <form action="/modificarC" method="post">
-                    @csrf
-                    <div class="form-group">
-                        <label for="producto">Id:</label>
-                        <input type="text"  name="txtid" class="form-control" id="ID" placeholder="Ingrese el Id del producto">
-                    </div>
-                    <div class="form-group">
-                        <label for="producto">Producto:</label>
-                        <input type="text" name="txtproduct" class="form-control" id="producto" placeholder="Ingrese el nombre del producto">
-                    </div>
-                    <div class="form-group">
-                        <label for="cantidad">Cantidad:</label>
-                        <input type="text" name="txtcantida" class="form-control" id="cantidad" placeholder="Ingrese la cantidad">
-                    </div>
-                    <div class="form-group">
-                        <label for="precio">Precio Total:</label>
-                        <input type="text" name="txtpreci" class="form-control" id="precio" placeholder="Ingrese el precio total">
-                    </div>
-                    <div class="form-group">
-                        <label for="serie">No. de Serie:</label>
-                        <input type="text" name="txtseri" class="form-control" id="serie" placeholder="Ingrese el número de serie">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" data-dismiss="modal">Guardar</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    </div>
-                </form>
+                        @csrf
+                        <div class="form-group">
+                            <label for="producto">Id:</label>
+                            <input type="text"  name="txtid" class="form-control" id="ID" placeholder="Ingrese el Id del producto">
+                        </div>
+                        <div class="form-group">
+                            <label for="producto">Producto:</label>
+                            <input type="text" name="txtproduct" class="form-control" id="producto" placeholder="Ingrese el nombre del producto">
+                        </div>
+                        <div class="form-group">
+                            <label for="cantidad">Cantidad:</label>
+                            <input type="text" name="txtcantida" class="form-control" id="cantidad" placeholder="Ingrese la cantidad">
+                        </div>
+                        <div class="form-group">
+                            <label for="precio">Precio Total:</label>
+                            <input type="text" name="txtpreci" class="form-control" id="precio" placeholder="Ingrese el precio total">
+                        </div>
+                        <div class="form-group">
+                            <label for="serie">No. de Serie:</label>
+                            <input type="text" name="txtseri" class="form-control" id="serie" placeholder="Ingrese el número de serie">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success" data-dismiss="modal">Guardar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </form>
             </div>
         </div>
     </div>

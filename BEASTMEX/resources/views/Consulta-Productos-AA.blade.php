@@ -58,7 +58,7 @@ h2{
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminarModal">
         Eliminar
     </button>
-    <a href="/almacen" class="btn btn-warning">Regresar a la Página Principal</a>
+    <a href="/inialmacen" class="btn btn-warning">Regresar a la Página Principal</a>
     <div class="modal" id="agregarModal" aria-labelledby="agregarModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -86,7 +86,7 @@ h2{
                     )
                     </script>
                     @endif
-                    <form action="/guardarP" method="post">
+                    <form action="/guardarPr" method="post">
                         @csrf
                         <div class="form-group">
                             <label for="ID">Id:</label>
@@ -153,7 +153,7 @@ h2{
                     )
                     </script>
                     @endif
-                    <form action="/modificarP" method="post">
+                    <form action="/modificarPr" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="ID">Id:</label>
@@ -210,7 +210,7 @@ h2{
                         );
                     </script>
                     @endif
-                    <form method="post" action="/EliminarP">
+                    <form method="post" action="/EliminarPr">
                         @csrf
                         <label>¿Seguro que deseas eliminar la venta?</label>
                     <div class="modal-footer">

@@ -77,11 +77,11 @@ h5{
     </div>
     <div class="container mt-5">
         <div class="d-flex justify-content-start mb-3">
-            <a href="{{ route('Login') }}" class="btn btn-warning">Regresar a la Página Principal</a>
+            <a href="/gerente" class="btn btn-warning">Regresar a la Página Principal</a>
             <div class="container mt-5">
             </div>
                 <div class="d-flex justify-content-end mb-3">
-                    <a href="{{ route('Login') }}" class="btn btn-danger">Descargar PDF</a>
+                    <a href="#" class="btn btn-danger">Descargar PDF</a>
                 </div>
         </div>
     </div>

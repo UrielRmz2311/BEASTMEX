@@ -1,119 +1,12 @@
+<?php
 
+namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\Validador;
 use Illuminate\Support\Facades\Redirect;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+class Controlador extends Controller
+{
     public function mostrarFormulario()
     {
         return view('RegistroUsuarios');
@@ -157,6 +50,10 @@ use Illuminate\Support\Facades\Redirect;
     {
         return view('Consulta-Productos-A');
     }
+    public function ConsultaProduAA()
+    {
+        return view('Consulta-Productos-AA');
+    }
     public function ConsultaProduC()
     {
         return view('Consulta-Productos-C');
@@ -165,10 +62,19 @@ use Illuminate\Support\Facades\Redirect;
     {
         return view('Registro-Producto-A');
     }
+    public function mostrarFormularioProd()
+    {
+        return view('Registro-Producto-AA');
+    }
     public function rulesFormRegisProd(Validador $req){
         $Producto=$req->input("txtProducto");
         $validatedData = $req->validate($req->rulesFormRegisProd());
         return redirect("/RegistroPro")->with("Confirmacion", "El producto " . $Producto . " se ha agregado correctamente");
+    }
+    public function rulesFormRegisProdu(Validador $req){
+        $Producto=$req->input("txtProducto");
+        $validatedData = $req->validate($req->rulesFormRegisProd());
+        return redirect("/RPA")->with("Confirmacion", "El producto " . $Producto . " se ha agregado correctamente");
     }
     public function guardarP(Validador $req){
         $Producto=$req->input("txtserie");
@@ -183,6 +89,20 @@ use Illuminate\Support\Facades\Redirect;
     public function EliminarP(Validador $req){
 
         return redirect('/CPA')->with('Confirmacion','Producto eliminada correctamente');
+    }
+    public function guardarPr(Validador $req){
+        $Producto=$req->input("txtserie");
+        $validatedData = $req->validate($req->rulesModalAgreProdu());
+        return redirect("/CPAA")->with("Confirmacion", "El producto " . $Producto . " se ha guardado correctamente");
+    }
+    public function modificarPr(Validador $req){
+        $Producto=$req->input("txtnserie");
+        $validatedData = $req->validate($req->rulesModalModiProdu());
+        return redirect("/CPAA")->with("Confirmacion", "El producto " . $Producto . " se ha modificado correctamente");
+    }
+    public function EliminarPr(Validador $req){
+
+        return redirect('/CPAA')->with('Confirmacion','Producto eliminada correctamente');
     }
     public function guardarC(Validador $req){
         $Compra=$req->input("txtproducto");
@@ -270,6 +190,9 @@ use Illuminate\Support\Facades\Redirect;
         return view('almacen');
     }
 
+    public function metodoinialmacen(){
+        return view('inicioalmacen');
+    }
     
     public function metodogerente(){
         return view('iniciogerente');
@@ -284,6 +207,7 @@ use Illuminate\Support\Facades\Redirect;
     }
 
     public function metodoLogin(Validador $req){
+        $validatedData = $req->validate($req->ruleslogin());
         $correo = $req->input('txtusuario');
         
         if (strpos($correo, '.gerente') !== false) {
@@ -299,3 +223,4 @@ use Illuminate\Support\Facades\Redirect;
             return redirect('/')->with('mensaje', 'El usuario no es válido. Favor de inténtalo de nuevo !!!');
         }
     }
+}

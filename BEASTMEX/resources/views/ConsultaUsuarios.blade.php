@@ -3,6 +3,9 @@
 @section('titulo','Consulta de Usuarios')
 
 @section('body')
+
+<h1 class="display-1 fw-bold text-center text-warning mt-2">CONSULTAR USUARIO</h1>
+
 <div class="modal fade" id="ModificarInfo" tabindex="-1" aria-labelledby="ModificarInformacion" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

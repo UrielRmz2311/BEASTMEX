@@ -93,7 +93,7 @@
 
         <button type="submit" class="btn btn-warning">Guardar</button>
         <button type="button" class="btn btn-danger">Cancelar</button>
-        <a href="{{ route('formulario') }}" class="btn btn-warning">Regresar a la Página Principal</a>
+        <a href="/gerente" class="btn btn-warning">Regresar a la Página Principal</a>
     </form>
 </div>
 

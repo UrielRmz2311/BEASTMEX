@@ -61,7 +61,7 @@ Swal.fire(
 )
 </script>
 @endif
-<form action="{{ url('/rulesFormRegisProd') }}" method="post">
+<form action="/rulesFormRegisProdu" method="post">
     @csrf
     <div class="form-group">
         <label for="numeroSerie">No. de serie:</label>
@@ -89,7 +89,7 @@ Swal.fire(
     </div>
     <button type="submit" class="btn btn-warning">Guardar</button>
     <button type="button" class="btn btn-danger">Cancelar</button>
-    <a href="/almacen" class="btn btn-warning">Regresar a la Página Principal</a>
+    <a href="/inialmacen" class="btn btn-warning">Regresar a la Página Principal</a>
 </form>
 
 

@@ -85,7 +85,7 @@ class Validador extends FormRequest
         ];
     }
 
-    public function rules(): array
+    public function ruleslogin(): array
     {
         return [
             //
@@ -120,6 +120,17 @@ class Validador extends FormRequest
             'foto'=>'required'
         ];
     }
+    public function rulesFormRegisProdu(): array
+    {
+        return [
+            'numeroSerie'=>'required|numeric',
+            'marca'=>'required',
+            'cantidad'=>'required|numeric',
+            'costo'=>'required|numeric',
+            'fecha'=>'required|date',
+            'foto'=>'required'
+        ];
+    }
     public function rulesModalModiPro(): array
     {
         return [
@@ -131,7 +142,29 @@ class Validador extends FormRequest
             'txtfecha'=>'required|date'      
         ];
     }
+    public function rulesModalModiProdu(): array
+    {
+        return [
+            'txtnserie'=>'required|numeric',
+            'txtmarca'=>'required',
+            'txtcantidad'=>'required|numeric',
+            'txtcosto'=>'required|numeric',
+            'txtprecioV'=>'required|numeric',
+            'txtfecha'=>'required|date'      
+        ];
+    }
     public function rulesModalAgrePro(): array
+    {
+        return [
+            'txtserie'=>'required|numeric',
+            'txtmarc'=>'required',
+            'txtcantida'=>'required|numeric',
+            'txtcost'=>'required|numeric',
+            'txtprecio'=>'required|numeric',
+            'txtfech'=>'required|date'      
+        ];
+    }
+    public function rulesModalAgreProdu(): array
     {
         return [
             'txtserie'=>'required|numeric',

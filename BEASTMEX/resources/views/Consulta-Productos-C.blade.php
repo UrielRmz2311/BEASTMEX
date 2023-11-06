@@ -33,7 +33,7 @@ justify-content: end;
     <h2>Consulta de Productos por Compras</h2> 
         <form class="d-flex mb-3 " role="search" >
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
     
         <table class="table">
@@ -48,7 +48,7 @@ justify-content: end;
         </table>
         <div class="container mt-5">
             <div class="d-flex justify-content-start mb-3">
-                <a href="{{ route('Login') }}" class="btn btn-warning">Regresar a la Página Principal</a>
+                <a href="/compras" class="btn btn-warning">Regresar a la Página Principal</a>
             </div>
         </div>
 </div>

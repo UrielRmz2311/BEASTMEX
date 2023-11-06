@@ -21,7 +21,7 @@
           <img src="{{ asset('images/productos.jpg') }}" height="300" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Registro de Producto</h5>
-            <a href="#" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="/RegistroPro" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>
