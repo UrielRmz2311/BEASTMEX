@@ -23,6 +23,8 @@ class Validador extends FormRequest
     {
         return [
             //
+            'txtusuario' => 'required|email',
+            'txtpass' => 'required',
         ];
     }
 }
