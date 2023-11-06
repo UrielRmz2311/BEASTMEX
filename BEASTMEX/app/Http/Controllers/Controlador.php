@@ -83,6 +83,14 @@ class Controlador extends Controller
         return view('iniciogerente');
     }
 
+    public function metodocompras(){
+        return view('iniciocompras');
+    }
+
+    public function metodoventass(){
+        return view('inicioventas');
+    }
+
     public function metodoLogin(Validador $req){
         $correo = $req->input('txtusuario');
         

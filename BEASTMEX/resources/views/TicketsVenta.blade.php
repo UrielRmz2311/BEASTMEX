@@ -4,6 +4,8 @@
 
 @section('body')
 
+<h1 class="display-1 fw-bold text-center text-warning mt-2">GENERAR TICKET</h1>
+
 <div class="container mt-4">
         <div class="container mt-4">
             <div class="row">
@@ -49,7 +51,10 @@
             </div>
         </div>
         <div class="d-flex justify-content-between">
-            <a class="btn btn-secondary" href="#"> < Regresar </a>
+            <a class="btn btn-secondary" href="/ventas"> < Regresar </a>
+            <div>
+                <button class="btn btn-danger">Descargar PDF</button>                
+            </div>
         </div>
 </div>
 

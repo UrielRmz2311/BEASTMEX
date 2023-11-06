@@ -72,6 +72,9 @@ class Validador extends FormRequest
             'txtProduc' => 'required',
             'txtCant' => 'required'
 
+        ];
+    }
+
     public function rules(): array
     {
         return [

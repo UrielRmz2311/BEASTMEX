@@ -210,7 +210,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-between">
-            <a class="btn btn-secondary" href="#"> < Regresar </a>
+            <a class="btn btn-secondary" href="/gerente"> < Regresar </a>
             <div>
                 <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AgUsu">Agregar</button>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModificarInfo">Modificar</button>

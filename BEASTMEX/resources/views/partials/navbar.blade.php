@@ -2,7 +2,7 @@
 <nav class="navbar bg-dark bg-body-tertiary" data-bs-theme="dark">
   <div class="container">
 
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand">
       <img src="{{ asset('images/logocompu.png') }}" width="60" height="40" class="d-inline-block align-text-top">
       <img src="{{ asset('images/letras.png') }}" width="200" height="40">
     </a>

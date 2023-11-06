@@ -3,6 +3,9 @@
 @section('titulo','Registro Proveedores')
 
 @section('body')
+
+<h1 class="display-1 fw-bold text-center text-warning mt-2">CONSULTA PROVEEDOR</h1>
+
 <div class="modal fade" id="Modificarprov" tabindex="-1" aria-labelledby="Modificarproveedor" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -180,7 +183,7 @@
             <button class="btn btn-secondary me-2 ms-auto" type="button">Enviar a email</button>
         </div>
         <div class="d-flex justify-content-between">
-            <a class="btn btn-secondary" href="#"> < Regresar </a>
+            <a class="btn btn-secondary" href="/compras"> < Regresar </a>
             <div>
                 <button class="btn btn-danger">Descargar PDF</button>                
                 <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AgProv">Agregar</button>

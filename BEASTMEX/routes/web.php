@@ -39,6 +39,8 @@ Route::post('/AgregarProv',[Controlador::class,'AgregarProv'])->name('agregar2')
 Route::get('/', [Controlador::class,'metodoInicio'])->name('Iniciodesesion');
 Route::get('/almacen', [Controlador::class,'metodoalmacen'])->name('Inicioalmacen');
 Route::get('/gerente', [Controlador::class,'metodogerente']);
+Route::get('/compras', [Controlador::class,'metodocompras']);
+Route::get('/ventas', [Controlador::class,'metodoventass']);
 
 Route::post('/metodologin', [Controlador::class, 'metodoLogin']);
 
