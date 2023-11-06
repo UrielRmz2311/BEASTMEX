@@ -22,6 +22,7 @@ class Validador extends FormRequest
     public function rulesFormulario1(): array
     {
         return [
+
             'txtProveedor' => 'required',
             'txtProducto1' => 'required',
             'txtCantidad1' => 'required',
@@ -70,6 +71,14 @@ class Validador extends FormRequest
             'txtDirec' => 'required',
             'txtProduc' => 'required',
             'txtCant' => 'required'
+
+    public function rules(): array
+    {
+        return [
+            //
+            'txtusuario' => 'required|email',
+            'txtpass' => 'required',
         ];
     }
 }
+

@@ -15,6 +15,7 @@ use App\Http\Controllers\Controlador;
 |
 */
 
+
 Route::get('/', function () {
     return view('Login');
 });
@@ -34,4 +35,10 @@ Route::post('/AgregarUsu',[Controlador::class,'AgregarUsu'])->name('agregar');
 Route::post('/ModificarProv',[Controlador::class,'ModificarProv'])->name('modificar2');
 Route::post('/EliminarProv',[Controlador::class,'EliminarProv'])->name('eliminar2');
 Route::post('/AgregarProv',[Controlador::class,'AgregarProv'])->name('agregar2');
+
+Route::get('/', [Controlador::class,'metodoInicio'])->name('Iniciodesesion');
+Route::get('/almacen', [Controlador::class,'metodoalmacen'])->name('Inicioalmacen');
+Route::get('/gerente', [Controlador::class,'metodogerente']);
+
+Route::post('/metodologin', [Controlador::class, 'metodoLogin']);
 
