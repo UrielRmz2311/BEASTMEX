@@ -1,12 +1,116 @@
-<?php
 
-namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests\Validador;
 
-class Controlador extends Controller
-{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function mostrarFormulario()
     {
         return view('RegistroUsuarios');
@@ -91,4 +195,3 @@ class Controlador extends Controller
 
         return redirect('/CCG')->with('Confirmacion','Compra eliminada correctamente');
     }
-}
