@@ -49,6 +49,10 @@
                     <p class="text-danger fw-bold">{{ $errors->first('txtpass')}}</p>
                 </div>
                 <div class="text-center mt-3">
+
+                    <a class="btn btn-warning" type="button" href="/CCG" >Entrar</a>
+                </div>
+
                     <button class="btn btn-warning fw-bold" type="submit">Entrar</button>
                     <a class="btn btn-danger mx-2 fw-bold" type="Button" href="/Olvide">Olvide mi Contraseña</a>    
                  </div>
