@@ -4,9 +4,25 @@
 
 @section('body')
 
-<h1 class="display-1 fw-bold text-center text-warning mt-2">CÁLCULO DE GANANCIAS</h1>
+<style>
+    .contenedor {
+        max-width: 1300px;
+        margin: 20px auto;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 8px;
+    }
+    h2{
+        font-size: 80px;
+        color: rgb(255, 255, 255);
+        text-align: center;
+    }
+</style>
 
-<div class="container mt-4">
+
+<div class="contenedor mt-4">
+    <h2>Cálculo de Ganancias</h2>
+
         <div class="container mt-4">
             <div class="row">
                 <div class="col-lg-12">
@@ -39,7 +55,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-between">
-            <a class="btn btn-secondary" href="/ventas"> < Regresar </a>
+            <a class="btn btn-warning" href="/ventas">Regresar a la Página Principal</a>
         </div>
 </div>
 

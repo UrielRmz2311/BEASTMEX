@@ -30,7 +30,7 @@ h2{
 </style>
 
 <div class="contenedor mt-5">
-<h2>Consulta de Productos por Almacen</h2> 
+    <h2>Consulta de Productos por Almacen</h2> 
     <form class="d-flex mb-3 " role="search" >
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
@@ -59,6 +59,8 @@ h2{
         Eliminar
     </button>
     <a href="/almacen" class="btn btn-warning">Regresar a la Página Principal</a>
+
+    
     <div class="modal" id="agregarModal" aria-labelledby="agregarModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -67,11 +69,11 @@ h2{
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    @if (session()->has('Confirmacion'))
+                    @if (session()->has('Confirmacion8'))
                     <script>
                         Swal.fire(
                             'El producto {{ old('txtnserie') }} se guardó correctamente',
-                            '{!! session('Confirmacion') !!}',
+                            '{!! session('Confirmacion8') !!}',
                             'success'
                         );
                     </script>
@@ -134,11 +136,11 @@ h2{
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    @if (session()->has('Confirmacion'))
+                    @if (session()->has('Confirmacion9'))
                     <script>
                         Swal.fire(
                             'El producto {{ old('txtnserie') }} se guardó correctamente',
-                            '{!! session('Confirmacion') !!}',
+                            '{!! session('Confirmacion9') !!}',
                             'success'
                         );
                     </script>

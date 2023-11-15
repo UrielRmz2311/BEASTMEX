@@ -4,6 +4,16 @@
 
 @section('body')
 
+<style>
+    .contenedor {
+    max-width: 1300px;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+}
+</style>
+
 <h1 class="display-1 fw-bold text-center text-warning mt-2">CONSULTA PROVEEDOR</h1>
 
 <div class="modal fade" id="Modificarprov" tabindex="-1" aria-labelledby="Modificarproveedor" aria-hidden="true">
@@ -144,7 +154,7 @@
     </div>
 </div>
 
-<div class="container mt-4">
+<div class="contenedor mt-4">
         <div class="container mt-4">
             <div class="row">
                 <div class="col-lg-12">
@@ -183,11 +193,11 @@
             <button class="btn btn-secondary me-2 ms-auto" type="button">Enviar a email</button>
         </div>
         <div class="d-flex justify-content-between">
-            <a class="btn btn-secondary" href="/compras"> < Regresar </a>
+            <a class="btn btn-warning" href="/compras">Regresar a la Página Principal</a>
             <div>
                 <button class="btn btn-danger">Descargar PDF</button>                
                 <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AgProv">Agregar</button>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modificarprov">Modificar</button>
+                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modificarprov">Modificar</button>
                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#EliProv">Eliminar</button>
             </div>
         </div>

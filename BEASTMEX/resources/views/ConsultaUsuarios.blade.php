@@ -4,7 +4,22 @@
 
 @section('body')
 
-<h1 class="display-1 fw-bold text-center text-warning mt-2">CONSULTAR USUARIO</h1>
+<style>
+    .contenedor {
+    max-width: 1300px;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+}
+h2{
+    font-size: 80px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+</style>
+
+
 
 <div class="modal fade" id="ModificarInfo" tabindex="-1" aria-labelledby="ModificarInformacion" aria-hidden="true">
     <div class="modal-dialog">
@@ -38,17 +53,14 @@
                     <div class="mb-3">
                         <label class="form-label">Nombre</label>
                         <input type="text" class="form-control" name="txtNombre" placeholder="Nombre" value="{{ old('txtNombre')}}">
-                        <p class="fw-bold text-danger"> {{ $errors->first('txtNombre') }} </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Contraseña</label>
                         <input type="password" class="form-control" name="txtContra" placeholder="Contraseña" value="{{ old('txtContra')}}">
-                        <p class="fw-bold text-danger"> {{ $errors->first('txtContra') }} </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Correo electronico</label>
                         <input type="text" class="form-control" name="txtCorreo" placeholder="Correo electronico" value="{{ old('txtCorreo')}}">
-                        <p class="fw-bold text-danger"> {{ $errors->first('txtCorreo') }} </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Puesto</label>
@@ -58,7 +70,6 @@
                             <option value="Ventas">Ventas</option>
                             <option value="Compras">Compras</option>
                         </select>
-                        <p class="fw-bold text-danger"> {{ $errors->first('txtPuesto') }} </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -132,17 +143,14 @@
                     <div class="mb-3">
                         <label class="form-label">Nombre</label>
                         <input type="text" class="form-control" name="txtNom" placeholder="Nombre" value="{{ old('txtNom')}}">
-                        <p class="fw-bold text-danger"> {{ $errors->first('txtNom') }} </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Contraseña</label>
                         <input type="password" class="form-control" name="txtCon" placeholder="Contraseña" value="{{ old('txtCon')}}">
-                        <p class="fw-bold text-danger"> {{ $errors->first('txtCon') }} </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Correo electronico</label>
                         <input type="text" class="form-control" name="txtCor" placeholder="Correo electronico" value="{{ old('txtCor')}}">
-                        <p class="fw-bold text-danger"> {{ $errors->first('txtCor') }} </p>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Puesto</label>
@@ -152,7 +160,6 @@
                             <option value="Ventas">Ventas</option>
                             <option value="Compras">Compras</option>
                         </select>
-                        <p class="fw-bold text-danger"> {{ $errors->first('txtPue') }} </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -164,7 +171,8 @@
     </div>
 </div>
 
-<div class="container mt-4">
+<div class="contenedor mt-4">
+    <h2>Consultar Usuarios</h2>
         <div class="container mt-4">
             <div class="row">
                 <div class="col-lg-12">
@@ -213,10 +221,10 @@
             </div>
         </div>
         <div class="d-flex justify-content-between">
-            <a class="btn btn-secondary" href="/gerente"> < Regresar </a>
+            <a class="btn btn-warning" href="/gerente">Regresar a la Página Principal</a>
             <div>
-                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AgUsu">Agregar</button>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModificarInfo">Modificar</button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AgUsu">Agregar</button>
+                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ModificarInfo">Modificar</button>
                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#EliUsu">Eliminar</a>
             </div>
         </div>
