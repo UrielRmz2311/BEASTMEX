@@ -27,7 +27,7 @@
                 @if($errors->any())
                     <script>
                         Swal.fire(
-                            'Falta diligenciar correctamente algunos campos...',
+                            'El usuario no se guardo, verifica los datos...',
                             '{{$errors->first()}}',
                             'warning'
                         )
@@ -121,7 +121,7 @@
                 @if($errors->any())
                     <script>
                         Swal.fire(
-                            'Falta diligenciar correctamente algunos campos...',
+                            'El usuario no se guardo, verifica los datos...',
                             '{{$errors->first()}}',
                             'warning'
                         )
