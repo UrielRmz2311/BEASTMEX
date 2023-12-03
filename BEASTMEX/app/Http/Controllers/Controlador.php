@@ -7,7 +7,47 @@ use Illuminate\Support\Facades\Redirect;
 
 class Controlador extends Controller
 {
-    public function mostrarFormulario()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+/*     public function mostrarFormulario()
     {
         return view('RegistroUsuarios');
     }
@@ -222,5 +262,5 @@ class Controlador extends Controller
             // Si no tiene ninguna extensión específica
             return redirect('/')->with('mensaje', 'El usuario no es válido. Favor de inténtalo de nuevo !!!');
         }
-    }
+    } */
 }
