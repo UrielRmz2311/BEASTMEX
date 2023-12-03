@@ -84,16 +84,19 @@
 
         <label for="puesto">Puesto:</label>
             <select id="puesto" name="puesto">
-            <option selected>Selecciona el puesto en el que estas</option>
-            <option value="1">Gerencia</option>
-            <option value="2">Ventas</option>
-            <option value="3">Compras</option>
-            <option value="3">Almacen</option>
-          </select>
-
-        <button type="submit" class="btn btn-warning">Guardar</button>
-        <button type="button" class="btn btn-danger">Cancelar</button>
-        <a href="/gerente" class="btn btn-warning">Regresar a la Página Principal</a>
+                <option selected>Selecciona el puesto en el que estas</option>
+                <option value="1">Gerencia</option>
+                <option value="2">Ventas</option>
+                <option value="3">Compras</option>
+                <option value="3">Almacen</option>
+            </select>
+        
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-warning">Guardar</button>
+            <div>
+                <a href="/gerente" class="btn btn-warning">Regresar a la Página Principal</a>
+            </div>
+        </div>
     </form>
 </div>
 

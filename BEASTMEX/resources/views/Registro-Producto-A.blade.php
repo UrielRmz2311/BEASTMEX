@@ -87,9 +87,13 @@ Swal.fire(
         <label for="foto">Fotografía del producto:</label>
         <input type="file" name="foto" class="form-control-file" required>
     </div>
-    <button type="submit" class="btn btn-warning">Guardar</button>
-    <button type="button" class="btn btn-danger">Cancelar</button>
-    <a href="/almacen" class="btn btn-warning">Regresar a la Página Principal</a>
+
+    <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-warning">Guardar</button>
+        <div>
+            <a href="/almacen" class="btn btn-warning">Regresar a la Página Principal</a>
+        </div>
+    </div>
 </form>
 
 

@@ -79,12 +79,12 @@ class Controlador extends Controller
     public function guardarP(Validador $req){
         $Producto=$req->input("txtserie");
         $validatedData = $req->validate($req->rulesModalAgrePro());
-        return redirect("/CPA")->with("Confirmacion", "El producto " . $Producto . " se ha guardado correctamente");
+        return redirect("/CPA")->with("Confirmacion8", "El producto " . $Producto . " se ha guardado correctamente");
     }
     public function modificarP(Validador $req){
         $Producto=$req->input("txtnserie");
         $validatedData = $req->validate($req->rulesModalModiPro());
-        return redirect("/CPA")->with("Confirmacion", "El producto " . $Producto . " se ha modificado correctamente");
+        return redirect("/CPA")->with("Confirmacion9", "El producto " . $Producto . " se ha modificado correctamente");
     }
     public function EliminarP(Validador $req){
 
@@ -93,12 +93,12 @@ class Controlador extends Controller
     public function guardarPr(Validador $req){
         $Producto=$req->input("txtserie");
         $validatedData = $req->validate($req->rulesModalAgreProdu());
-        return redirect("/CPAA")->with("Confirmacion", "El producto " . $Producto . " se ha guardado correctamente");
+        return redirect("/CPAA")->with("Confirmacion10", "El producto " . $Producto . " se ha guardado correctamente");
     }
     public function modificarPr(Validador $req){
         $Producto=$req->input("txtnserie");
         $validatedData = $req->validate($req->rulesModalModiProdu());
-        return redirect("/CPAA")->with("Confirmacion", "El producto " . $Producto . " se ha modificado correctamente");
+        return redirect("/CPAA")->with("Confirmacion11", "El producto " . $Producto . " se ha modificado correctamente");
     }
     public function EliminarPr(Validador $req){
 
