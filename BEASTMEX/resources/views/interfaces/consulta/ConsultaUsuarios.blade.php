@@ -18,11 +18,6 @@ h2{
     text-align: center;
 }
 </style>
-
-
-
-
-
 <div class="modal fade" id="AgUsu" tabindex="-1" aria-labelledby="AgregarUsuario" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -40,7 +35,6 @@ h2{
                         ) 
                     </script>
                 @endif
-
                 @if($errors->any())
                     <script>
                         Swal.fire(
@@ -102,7 +96,7 @@ h2{
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($allusers as $item)
+                            @foreach ($allusers as $item)                           
                             <div class="modal fade" id="update{{$item->id}}" tabindex="-1" aria-labelledby="ModificarInformacion" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -130,23 +124,24 @@ h2{
                                                     )
                                                 </script>
                                             @endif
-                                            <form method="POST" action="/ModificarUsu">
+                                            <form method="POST" action="{{route('usuario.update',$item->id)}}">
                                                 @csrf
+                                                @method('PUT')
                                                 <div class="mb-3">
                                                     <label class="form-label">Nombre</label>
-                                                    <input type="text" class="form-control" name="txtNombre" placeholder="Nombre" value="{{ old('txtNombre')}}">
+                                                    <input type="text" class="form-control" name="txtNombre" placeholder="Nombre" value="{{$item->nombre}}">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Contraseña</label>
-                                                    <input type="password" class="form-control" name="txtContra" placeholder="Contraseña" value="{{ old('txtContra')}}">
+                                                    <input type="password" class="form-control" name="txtContra" placeholder="Contraseña" value="{{$item->contraseña}}">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Correo electronico</label>
-                                                    <input type="text" class="form-control" name="txtCorreo" placeholder="Correo electronico" value="{{ old('txtCorreo')}}">
+                                                    <input type="text" class="form-control" name="txtCorreo" placeholder="Correo electronico" value="{{$item->correo}}">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Puesto</label>
-                                                    <select class="form-select" name="txtPuesto" value="{{ old('txtPuesto')}}">
+                                                    <select class="form-select" name="txtPuesto" value="{{$item->puesto}}">
                                                         <option value="Gerente">Gerente</option>
                                                         <option value="Almacen">Almacen</option>
                                                         <option value="Ventas">Ventas</option>
@@ -180,8 +175,9 @@ h2{
                                                 ) 
                                                 </script>
                                             @endif
-                                            <form method="POST" action="/EliminarUsu" class="text-center">
+                                            <form method="POST" action="{{route('usuario.destroy',$item->id)}}" class="text-center">
                                                 @csrf
+                                                @method('DELETE')
                                                 <label>¿Seguro que desea eliminar al usuario? </label>
                                                 <div class="modal-footer mt-4">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

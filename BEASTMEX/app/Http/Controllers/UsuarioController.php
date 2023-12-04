@@ -38,36 +38,29 @@ class UsuarioController extends Controller
         
         return redirect()->back();
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(usuario $usuario)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(usuario $usuario)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, usuario $usuario)
+    public function update(Request $request, $id)
     {
-        //
+        $UpUsuario= usuario::find($id);
+        $UpUsuario->nombre=$request->txtNombre;
+        $UpUsuario->contraseña=$request->txtContra;
+        $UpUsuario->correo=$request->txtCorreo;
+        $UpUsuario->puesto=$request->txtPuesto;
+        $UpUsuario->update();
+        
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(usuario $usuario)
+    public function destroy($id)
     {
-        //
+        $dlUsuario= usuario::find($id);
+        $dlUsuario->delete();
+
+        return redirect()->back();
     }
 }
