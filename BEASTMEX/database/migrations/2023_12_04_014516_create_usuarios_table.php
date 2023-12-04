@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('contraseña');
             $table->string('correo')->unique();
             $table->string('puesto');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
