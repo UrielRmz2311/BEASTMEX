@@ -43,12 +43,13 @@ class Validador extends FormRequest
             'txtDireccion' => 'required'
         ];
     }
+
     public function rulesFormulario2(): array
     {
         return [
             'txtNombre' => 'required',
-            'txtContra' => 'required',
-            'txtCorreo' => 'required',
+            'txtContra' => 'required|max:8',
+            'txtCorreo' => 'required|email',
             'txtPuesto' => 'required'
         ];
     }
@@ -56,27 +57,27 @@ class Validador extends FormRequest
     {
         return [
             'txtNom' => 'required',
-            'txtCon' => 'required',
-            'txtCor' => 'required',
+            'txtCon' => 'required|max:8',
+            'txtCor' => 'required|email',
             'txtPue' => 'required'
         ];
     }
+
     public function rulesFormulario4(): array
-    {
-        return [
-            'txtProv' => 'required',
-            'txtDir' => 'required'
-        ];
-    }
-    public function rulesFormulario5(): array
-    {
-        return [
-            'txtProvee' => 'required',
-            'txtDirec' => 'required',
-            'txtProduc' => 'required',
-            'txtCant' => 'required'
-        ];
-    }
+        {
+            return [
+                'txtProv' => 'required',
+                'txtDir' => 'required'
+            ];
+        }
+        public function rulesFormulario5(): array
+        {
+            return [
+                'txtProvee' => 'required',
+                'txtDirec' => 'required',
+            ];
+        }
+
     public function ruleslogin(): array
     {
         return [

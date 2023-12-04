@@ -12,7 +12,8 @@ class TicketdeventaController extends Controller
      */
     public function index()
     {
-        //
+        $alltickets= ticketdeventa::all();
+        return view('interfaces.consulta.TicketsVenta',compact('alltickets'));
     }
 
     /**

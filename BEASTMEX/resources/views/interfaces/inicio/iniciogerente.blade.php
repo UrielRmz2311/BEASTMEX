@@ -23,7 +23,7 @@
           <img src="{{ asset('images/usuarios.png') }}" height="200" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Registrar Usuario</h5>
-            <a href="/RegistroUsu" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="/RegistrarUsuario" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@
           <img src="{{ asset('images/consulta.png') }}" height="200" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Consultar Usuarios</h5>
-            <a href="/conusu" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="usuario" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
           <img src="{{ asset('images/almacen.png') }}" height="200" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Almacén</h5>
-            <a href="/almacen" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="/Almacen" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>

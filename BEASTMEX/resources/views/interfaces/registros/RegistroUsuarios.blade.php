@@ -64,37 +64,38 @@
       )
       </script>
   @endif
-    <form method="post" action="/guardarUsuario">
+    <form method="post" action="{{ route('usuario.store')}}">
         @csrf
 
         <div class="form-group">
             <label for="nombre_completo">Nombre Completo:</label>
-            <input type="text" name="txtnombre" class="form-control" id="nombre_completo" name="nombre_completo" required>
+            <input type="text" name="txtNom" class="form-control" id="nombre_completo" required>
         </div>
 
         <div class="form-group">
             <label for="contrasena">Contraseña:</label>
-            <input type="password" name="txtcontraseña" class="form-control" id="contrasena" name="contrasena" required>
+            <input type="password" name="txtCon" class="form-control" id="contrasena" required>
         </div>
 
         <div class="form-group">
             <label for="correo">Correo Electrónico:</label>
-            <input type="text" name="txtcorreo" class="form-control" id="correo" name="correo" required>
+            <input type="text" name="txtCor" class="form-control" id="correo" required>
         </div>
 
-        <label for="puesto">Puesto:</label>
-            <select id="puesto" name="puesto">
-                <option selected>Selecciona el puesto en el que estas</option>
-                <option value="1">Gerencia</option>
-                <option value="2">Ventas</option>
-                <option value="3">Compras</option>
-                <option value="3">Almacen</option>
+        <div class="mb-3">
+            <label class="form-label">Puesto:</label>
+            <select class="form-select" name="txtPue" value="{{ old('txtPue')}}">
+                <option value="Gerente">Gerente</option>
+                <option value="Almacen">Almacen</option>
+                <option value="Ventas">Ventas</option>
+                <option value="Compras">Compras</option>
             </select>
+        </div>
         
         <div class="d-flex justify-content-between">
             <button type="submit" class="btn btn-warning">Guardar</button>
             <div>
-                <a href="/gerente" class="btn btn-warning">Regresar a la Página Principal</a>
+                <a href="/InicioGerente" class="btn btn-warning">Regresar a la Página Principal</a>
             </div>
         </div>
     </form>

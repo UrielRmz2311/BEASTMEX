@@ -18,11 +18,6 @@ h2{
     text-align: center;
 }
 </style>
-
-
-
-
-
 <div class="modal fade" id="AgUsu" tabindex="-1" aria-labelledby="AgregarUsuario" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -31,16 +26,15 @@ h2{
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                @if (session()->has('confirmacion4'))
+                @if (session()->has('Confirmacion'))
                     <script>
                         Swal.fire(
                         'Todo Correcto',
-                        '{!! session('confirmacion4') !!}',
+                        '{!! session('Confirmacion') !!}',
                         'success'
                         ) 
                     </script>
                 @endif
-
                 @if($errors->any())
                     <script>
                         Swal.fire(
@@ -102,7 +96,7 @@ h2{
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($allusers as $item)
+                            @foreach ($allusers as $item)                           
                             <div class="modal fade" id="update{{$item->id}}" tabindex="-1" aria-labelledby="ModificarInformacion" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -130,23 +124,29 @@ h2{
                                                     )
                                                 </script>
                                             @endif
-                                            <form method="POST" action="/ModificarUsu">
+                                            <form method="POST" action="{{route('usuario.update',$item->id)}}">
                                                 @csrf
+                                                @method('PUT')
                                                 <div class="mb-3">
                                                     <label class="form-label">Nombre</label>
-                                                    <input type="text" class="form-control" name="txtNombre" placeholder="Nombre" value="{{ old('txtNombre')}}">
+                                                    <input type="text" class="form-control" name="txtNombre" placeholder="Nombre" value="{{$item->nombre}}">
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Contraseña</label>
-                                                    <input type="password" class="form-control" name="txtContra" placeholder="Contraseña" value="{{ old('txtContra')}}">
+                                                <label class="form-label">Cambiar Contraseña:</label>
+                                                <div class="d-flex">
+                                                    <button type="button" class="btn btn-warning me-2" id="btnChangePassword">Cambiar</button>
+                                                    <button type="button" class="btn btn-success" id="btnSamePassword">Misma contraseña</button>
+                                                </div>
+                                                <div class="mb-3" id="passwordFields" style="display: none;">
+                                                    <label class="form-label">Contraseña:</label>
+                                                    <input type="password" pattern=".{8,}" class="form-control" name="txtContra" placeholder="8 caracteres mínimo (Recomendado)">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Correo electronico</label>
-                                                    <input type="text" class="form-control" name="txtCorreo" placeholder="Correo electronico" value="{{ old('txtCorreo')}}">
+                                                    <input type="text" class="form-control" name="txtCorreo" placeholder="Correo electronico" value="{{$item->correo}}">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Puesto</label>
-                                                    <select class="form-select" name="txtPuesto" value="{{ old('txtPuesto')}}">
+                                                    <select class="form-select" name="txtPuesto" value="{{$item->puesto}}">
                                                         <option value="Gerente">Gerente</option>
                                                         <option value="Almacen">Almacen</option>
                                                         <option value="Ventas">Ventas</option>
@@ -180,8 +180,9 @@ h2{
                                                 ) 
                                                 </script>
                                             @endif
-                                            <form method="POST" action="/EliminarUsu" class="text-center">
+                                            <form method="POST" action="{{route('usuario.destroy',$item->id)}}" class="text-center">
                                                 @csrf
+                                                @method('DELETE')
                                                 <label>¿Seguro que desea eliminar al usuario? </label>
                                                 <div class="modal-footer mt-4">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -222,11 +223,43 @@ h2{
             </div>
         </div>
         <div class="d-flex justify-content-between">
-            <a class="btn btn-warning" href="/gerente">Regresar a la Página Principal</a>
+            <a class="btn btn-warning" href="/InicioGerente">Regresar a la Página Principal</a>
             <div>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AgUsu">Agregar</button>
             </div>
         </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const btnChangePassword = document.getElementById("btnChangePassword");
+        const btnSamePassword = document.getElementById("btnSamePassword");
+        const passwordFields = document.getElementById("passwordFields");
+        const passwordInput = document.querySelector("[name=txtContra]");
+
+        btnChangePassword.addEventListener("click", function () {
+            passwordFields.style.display = "block";
+            btnChangePassword.classList.remove("btn-warning");
+            btnChangePassword.classList.add("btn-success");
+            btnSamePassword.classList.remove("btn-success");
+            btnSamePassword.classList.add("btn-warning");
+
+            // Limpiar el valor del campo de contraseña
+            passwordInput.value = "";
+        });
+
+        btnSamePassword.addEventListener("click", function () {
+            passwordFields.style.display = "none";
+            btnSamePassword.classList.remove("btn-warning");
+            btnSamePassword.classList.add("btn-success");
+            btnChangePassword.classList.remove("btn-success");
+            btnChangePassword.classList.add("btn-warning");
+
+            // Restaurar valor original del campo de contraseña sin encriptar
+            passwordInput.value = "{{ $item->contraseñanoencrip }}";
+        });
+    });
+</script>
+
     
 @endsection

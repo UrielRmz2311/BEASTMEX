@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\Validador;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\usuario;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class Controlador extends Controller
 {
@@ -84,24 +87,60 @@ public function metodoInicio(){
     return view('Login');
 }
 
-public function metodoLogin(Validador $req){
+public function metodoLogin(Validador $req)
+{
     $validatedData = $req->validate($req->ruleslogin());
     $correo = $req->input('txtusuario');
-    
-    if (strpos($correo, '.gerente') !== false) {
-        return view('interfaces.inicio.iniciogerente');
-    } elseif (strpos($correo, '.almacen') !== false) {
-        return view('interfaces.inicio.inicioalmacen');
-    } elseif (strpos($correo, '.compras') !== false) {
-        return view('interfaces.inicio.iniciocompras');
-    } elseif (strpos($correo, '.ventas') !== false) {
-        return view('interfaces.inicio.inicioventas');
-    } else {
-        // Si no tiene ninguna extensión específica
-        return redirect('/')->with('mensaje', 'El usuario no es válido. Favor de inténtalo de nuevo !!!');
-    }
-} 
+    $contraseña = $req->input('txtpass');
 
+    $usuario = usuario::where('correo', $correo)->first();
+
+    if ($usuario) {
+        if (Hash::check($contraseña, $usuario->contraseña)) {
+
+            // Redirigir según el puesto
+            switch ($usuario->puesto) {
+                case 'Gerente':
+                    return view('interfaces.inicio.iniciogerente');
+                case 'Almacen':
+                    return view('interfaces.inicio.inicioalmacen');
+                case 'Compras':
+                    return view('interfaces.inicio.iniciocompras');
+                case 'Ventas':
+                    return view('interfaces.inicio.inicioventas');
+                default:
+                    return redirect('/')->with('mensaje', 'El usuario no es válido. Favor de intentarlo de nuevo !!!');
+            }
+        }
+    }
+
+    return redirect('/')->with('mensaje', 'Credenciales incorrectas. Favor de intentarlo de nuevo !!!');
+}
+
+
+public function metodoalmacen(){
+    return view('interfaces.solodireccion.almacen');
+}
+
+public function metodoinialmacen(){
+    return view('interfaces.inicio.inicioalmacen');
+}
+
+public function metodogerente(){
+    return view('interfaces.inicio.iniciogerente');
+}
+
+public function metodocompras(){
+    return view('interfaces.inicio.iniciocompras');
+}
+
+public function metodoventass(){
+    return view('interfaces.inicio.inicioventas');
+}
+public function mostrarFormularioProd()
+{
+    return view('interfaces.registros.Registro-Producto-AA');
+}
 
 
 

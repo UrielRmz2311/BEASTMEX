@@ -35,7 +35,7 @@
           <img src="{{ asset('images/factura.png') }}" height="230" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Generador de Ticket</h5>
-            <a href="tickven" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="ticketventa" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@
           <img src="{{ asset('images/consultaf.png') }}" height="230" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Consultar Tickets</h5>
-            <a href="/conticks" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="consultatickets" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>

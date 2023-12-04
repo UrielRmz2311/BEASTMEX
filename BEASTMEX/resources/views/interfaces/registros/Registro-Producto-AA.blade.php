@@ -42,11 +42,11 @@
 </style>
 <div class="contenedor">
     <h1>ALMACEN-REGISTRO DE PRODUCTOS</h1>
-@if (session()->has('Confirmacion'))
+@if (session()->has('Confirmacion77'))
 <script>
     Swal.fire(
         'El producto {{ old('txtnombre') }} se guardó correctamente',
-        '{!! session('Confirmacion') !!}',
+        '{!! session('Confirmacion77') !!}',
         'success'
     );
 </script>
@@ -61,36 +61,41 @@ Swal.fire(
 )
 </script>
 @endif
-<form action="/rulesFormRegisProdu" method="post">
+<form method="post" action="{{route('productos.store')}}">
     @csrf
     <div class="form-group">
         <label for="numeroSerie">No. de serie:</label>
-        <input type="text" name="numeroSerie" class="form-control" required>
+        <input type="text" name="txtserie" class="form-control" required>
     </div>
     <div class="form-group">
         <label for="marca">Marca:</label>
-        <input type="text" name="marca" class="form-control" required>
+        <input type="text" name="txtmarc" class="form-control" required>
     </div>
     <div class="form-group">
         <label for="cantidad">Cantidad:</label>
-        <input type="text" name="cantidad" class="form-control" required>
+        <input type="number" name="txtcantida" class="form-control" required>
     </div>
     <div class="form-group">
         <label for="costo">Costo de compra:</label>
-        <input type="text" step="0.01" name="costo" class="form-control" required>
+        <input type="text" step="0.01" name="txtcost" class="form-control" required>
+    </div>
+    <div class="form-group">
+    <label for="preciodVenta">Precio de Venta:</label>
+    <input type="text" name="txtprecio" class="form-control" placeholder="Precio de Venta generado" disabled>
     </div>
     <div class="form-group">
         <label for="fecha">Fecha de ingreso:</label>
-        <input type="date" name="fecha" class="form-control" required>
+        <input type="date" name="txtfech" class="form-control" required>
     </div>
     <div class="form-group">
         <label for="foto">Fotografía del producto:</label>
-        <input type="file" name="foto" class="form-control-file" required>
+        <input type="file" name="txtfoto" class="form-control-file" required>
     </div>
+
     <div class="d-flex justify-content-between">
         <button type="submit" class="btn btn-warning">Guardar</button>
         <div>
-            <a href="/inialmacen" class="btn btn-warning">Regresar a la Página Principal</a>
+            <a href="/Almacen" class="btn btn-warning">Regresar a la Página Principal</a>
         </div>
     </div>
 </form>

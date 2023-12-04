@@ -16,85 +16,6 @@
 
 <h1 class="display-1 fw-bold text-center text-warning mt-2">CONSULTA PROVEEDOR</h1>
 
-<div class="modal fade" id="Modificarprov" tabindex="-1" aria-labelledby="Modificarproveedor" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editarModalLabel">Editar Información</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                @if (session()->has('confirmacion5'))
-                    <script>
-                        Swal.fire(
-                        'Todo Correcto',
-                        '{!! session('confirmacion5') !!}',
-                        'success'
-                        ) 
-                    </script>
-                @endif
-
-                @if($errors->any())
-                    <script>
-                        Swal.fire(
-                            'El proveedor no se guardo, revisa los datos...',
-                            '{{$errors->first()}}',
-                            'warning'
-                        )
-                    </script>
-                @endif
-                <form method="POST" action="/ModificarProv">
-                    @csrf
-                    <div class="mb-3">
-                        <label class="form-label">Proveedor</label>
-                        <input type="text" class="form-control" name="txtProv" placeholder="Proveedor o marca" value="{{ old('txtProv')}}">
-                        <p class="fw-bold text-danger"> {{ $errors->first('txtProv') }} </p>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Direccion</label>
-                        <input type="text" class="form-control" name="txtDir" placeholder="Direccion" value="{{ old('txtDir')}}">
-                        <p class="fw-bold text-danger"> {{ $errors->first('txtDir') }} </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="EliProv" tabindex="-1" aria-labelledby="EliminarProveedor" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editarModalLabel">Eliminar Proveedor</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                @if (session()->has('confirmacion6'))
-                    <script>
-                    Swal.fire(
-                    'Todo Correcto',
-                    '{!! session('confirmacion6') !!}',
-                    'success'
-                    ) 
-                    </script>
-                @endif
-                <form method="POST" action="/EliminarProv" class="text-center">
-                    @csrf
-                    <label>¿Seguro que desea eliminar al proveedor? </label>
-                    <div class="modal-footer mt-4">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Eliminar Proveedor</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="modal fade" id="AgProv" tabindex="-1" aria-labelledby="AgregarProveedor" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -103,11 +24,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                @if (session()->has('confirmacion7'))
+                @if (session()->has('confirmacion'))
                     <script>
                         Swal.fire(
                         'Todo Correcto',
-                        '{!! session('confirmacion7') !!}',
+                        '{!! session('confirmacion') !!}',
                         'success'
                         ) 
                     </script>
@@ -122,7 +43,7 @@
                         )
                     </script>
                 @endif
-                <form method="POST" action="/AgregarProv">
+                <form method="POST" action="{{ route('proveedor.store')}}">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Proveedor</label>
@@ -133,16 +54,6 @@
                         <label class="form-label">Direccion</label>
                         <input type="text" class="form-control" name="txtDirec" placeholder="Direccion" value="{{ old('txtDirec')}}">
                         <p class="fw-bold text-danger"> {{ $errors->first('txtDirec') }} </p>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Producto</label>
-                        <input type="text" class="form-control" name="txtProduc" placeholder="Producto" value="{{ old('txtProduc')}}">
-                        <p class="fw-bold text-danger"> {{ $errors->first('txtProduc') }} </p>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Cantidad</label>
-                        <input type="number" class="form-control" name="txtCant" placeholder="Cantidad" value="{{ old('txtCant')}}">
-                        <p class="fw-bold text-danger"> {{ $errors->first('txtCant') }} </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -167,38 +78,121 @@
                             <tr>
                                 <th>Proveedor</th>
                                 <th>Direccion</th>
-                                <th>Productos</th>
-                                <th>Cantidad</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($allproveers as $item)  
+                            <div class="modal fade" id="update{{$item->id}}" tabindex="-1" aria-labelledby="Modificarproveedor" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editarModalLabel">Editar Información</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @if (session()->has('confirmacion5'))
+                                                <script>
+                                                    Swal.fire(
+                                                    'Todo Correcto',
+                                                    '{!! session('confirmacion5') !!}',
+                                                    'success'
+                                                    ) 
+                                                </script>
+                                            @endif
+                            
+                                            @if($errors->any())
+                                                <script>
+                                                    Swal.fire(
+                                                        'El proveedor no se guardo, revisa los datos...',
+                                                        '{{$errors->first()}}',
+                                                        'warning'
+                                                    )
+                                                </script>
+                                            @endif
+                                            <form method="POST" action="{{route('proveedor.update',$item->id)}}">
+                                                @csrf
+                                                @method('PUT')
+                                                <div class="mb-3">
+                                                    <label class="form-label">Proveedor</label>
+                                                    <input type="text" class="form-control" name="txtProv" placeholder="Proveedor o marca" value="{{$item->nombre}}">
+                                                    <p class="fw-bold text-danger"> {{ $errors->first('txtProv') }} </p>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Direccion</label>
+                                                    <input type="text" class="form-control" name="txtDir" placeholder="Direccion" value="{{$item->direccion}}">
+                                                    <p class="fw-bold text-danger"> {{ $errors->first('txtDir') }} </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="modal fade" id="destroy{{$item->id}}" tabindex="-1" aria-labelledby="EliminarProveedor" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editarModalLabel">Eliminar Proveedor</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @if (session()->has('confirmacion66'))
+                                                <script>
+                                                Swal.fire(
+                                                'Todo Correcto',
+                                                '{!! session('confirmacion66') !!}',
+                                                'success'
+                                                ) 
+                                                </script>
+                                            @endif
+                                            <form method="POST" action="{{route('proveedor.destroy',$item->id)}}" class="text-center">
+                                                @csrf
+                                                @method('DELETE')
+                                                <label>¿Seguro que desea eliminar al proveedor? </label>
+                                                <div class="modal-footer mt-4">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                    <button type="submit" class="btn btn-primary">Eliminar Proveedor</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$item->nombre}}</td>
+                                <td>{{$item->direccion}}</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-list-stars"></i> Opciones
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <button type="button" class="btn btn-warning m-1" data-bs-toggle="modal" data-bs-target="#update{{$item->id}}">
+                                                <i class="bi bi-pencil-square"></i> - Editar 
+                                              </button>
+                                            <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#destroy{{$item->id}}">
+                                                <i class="bi bi-trash"></i> - Borrar 
+                                              </button>
+                                        </ul>
+                                      </div>    
+                                     
+                                </td>
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>                    
                 </div>
             </div>
         </div>
-        <div class="input-group mb-3">
-            <button class="btn btn-secondary me-2 ms-auto" type="button">Enviar a email</button>
-        </div>
         <div class="d-flex justify-content-between">
-            <a class="btn btn-warning" href="/compras">Regresar a la Página Principal</a>
+            <a class="btn btn-warning" href="/InicioCompras">Regresar a la Página Principal</a>
             <div>
-                <button class="btn btn-danger">Descargar PDF</button>                
                 <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AgProv">Agregar</button>
-                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modificarprov">Modificar</button>
-                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#EliProv">Eliminar</button>
             </div>
         </div>
 </div>

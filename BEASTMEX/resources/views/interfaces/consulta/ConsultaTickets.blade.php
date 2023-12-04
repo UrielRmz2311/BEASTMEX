@@ -40,25 +40,21 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($allconsults as $item)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$item->ticket}}</td>
+                                <td>{{$item->totaldecompra}}</td>
+                                <td>{{$item->cliente}}</td>
+                                <td>{{$item->cantidad}}</td>
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>                    
                 </div>
             </div>
         </div>
         <div class="d-flex justify-content-between">
-            <a class="btn btn-warning" href="/ventas">Regresar a la Página Principal</a>
+            <a class="btn btn-warning" href="/InicioVentas">Regresar a la Página Principal</a>
             <div>
                 <button class="btn btn-danger">Descargar PDF</button>                
             </div>

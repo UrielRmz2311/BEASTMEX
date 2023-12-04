@@ -12,7 +12,8 @@ class ConsultadeventaController extends Controller
      */
     public function index()
     {
-        //
+        $allventas= consultadeventa::all();
+        return view('interfaces.consulta.ConsultaTicket',compact('allventas'));
     }
 
     /**
