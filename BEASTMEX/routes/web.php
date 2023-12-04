@@ -60,6 +60,8 @@ Route::resource('consultaventa',ConsultadeventaController::class);
 Route::resource('consultatickets',ConsultadeticketdeventaController::class);
 Route::resource('gananciasporventa',GananciasdeventaController::class);
 Route::resource('gananciaspormes',GananciapormesController::class);
+Route::resource('ordendecompra',OrdendecompraController::class);
+Route::get('Registrorden',[OrdendecompraController::class,'registro']);
 
 
 
