@@ -64,4 +64,12 @@ class ProveedorController extends Controller
 
         return redirect()->back();
     }
+    public function buscar(Request $request)
+    {
+        $searchTerm = $request->input('searchTerm');
+
+        $resultados = proveedor::where('nombre', 'LIKE', "%$searchTerm%")->get();
+
+        return response()->json($resultados);
+    }
 }
