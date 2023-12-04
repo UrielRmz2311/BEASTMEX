@@ -54,6 +54,11 @@ Route::post('/Inicio', [Controlador::class,'metodoLogin'])->name('Inicio');
 
 Route::resource('usuario',UsuarioController::class);
 Route::resource('proveedor',ProveedorController::class);
+Route::get('Registroproveedor',[ProveedorController::class,'registro']);
+Route::resource('ticketventa',TicketdeventaController::class);
+Route::resource('consultaventa',ConsultadeventaController::class);
+Route::resource('consultatickets',ConsultadeticketdeventaController::class);
+
 
 
 

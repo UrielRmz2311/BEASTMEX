@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('titulo','Registro Proveedores')
+@section('titulo','Consulta Proveedores')
 
 @section('body')
 
@@ -12,9 +12,12 @@
     padding: 20px;
     border-radius: 8px;
 }
+h2{
+    font-size: 80px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
 </style>
-
-<h1 class="display-1 fw-bold text-center text-warning mt-2">CONSULTA PROVEEDOR</h1>
 
 <div class="modal fade" id="AgProv" tabindex="-1" aria-labelledby="AgregarProveedor" aria-hidden="true">
     <div class="modal-dialog">
@@ -66,6 +69,7 @@
 </div>
 
 <div class="contenedor mt-4">
+    <h2>Consultar Proveedor</h2>
         <div class="container mt-4">
             <div class="row">
                 <div class="col-lg-12">
@@ -78,6 +82,7 @@
                             <tr>
                                 <th>Proveedor</th>
                                 <th>Direccion</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>

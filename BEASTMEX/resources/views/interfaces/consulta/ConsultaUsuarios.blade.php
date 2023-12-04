@@ -94,6 +94,7 @@ h2{
                                 <th>Contraseña</th>
                                 <th>Correo Electronico</th>
                                 <th>Puesto</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>

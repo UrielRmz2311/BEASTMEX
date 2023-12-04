@@ -40,18 +40,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($allconsults as $item)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$item->ticket}}</td>
+                                <td>{{$item->totaldecompra}}</td>
+                                <td>{{$item->cliente}}</td>
+                                <td>{{$item->cantidad}}</td>
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>                    
                 </div>

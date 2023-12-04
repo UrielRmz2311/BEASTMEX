@@ -42,59 +42,19 @@ h2{
             )
             </script>
     @endif
-    <form method="POST" action="/RegistroProv" class="row g-3">
+    <form method="POST" action="{{ route('proveedor.store')}}" class="row g-3">
         @csrf
         <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Nombre del proveedor o marca" name="txtProveedor" value="{{ old('txtProveedor')}}">
+            <input type="text" class="form-control" placeholder="Nombre del proveedor o marca" name="txtProvee" value="{{ old('txtProvee')}}">
         </div>
         <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Direccion" name="txtDireccion" value="{{ old('txtDireccion')}}">
+            <input type="text" class="form-control" placeholder="Direccion" name="txtDirec" value="{{ old('txtDirec')}}">
         </div>
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col-lg-6">
-                    <table class="table table-bordered table-striped">
-                        
-
-                        <thead>
-                            <tr>
-                                <th>Producto</th>
-                                <th>Cantidad</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><input type="text" class="form-control" name="txtProducto1" value="{{ old('txtProducto1')}}"></td>
-                                <td><input type="text" class="form-control" name="txtCantidad1" value="{{ old('txtCantidad1')}}"></td>
-                                <td><input type="checkbox" name="elementos1" ></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" class="form-control" name="txtProducto2" value="{{ old('txtProducto2')}}"></td>
-                                <td><input type="text" class="form-control" name="txtCantidad2" value="{{ old('txtCantidad2')}}"></td>
-                                <td><input type="checkbox" name="elementos2"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" class="form-control" name="txtProducto3" value="{{ old('txtProducto3')}}"></td>
-                                <td><input type="text" class="form-control" name="txtCantidad3" value="{{ old('txtCantidad3')}}"></td>
-                                <td><input type="checkbox" name="elementos3"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" class="form-control" name="txtProducto4" value="{{ old('txtProducto4')}}"></td>
-                                <td><input type="text" class="form-control" name="txtCantidad4" value="{{ old('txtCantidad4')}}"></td>
-                                <td><input type="checkbox" name="elementos4"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    
-                </div>
-            </div>
-        </div>
+        
         <div class="d-flex justify-content-between">
             <a class="btn btn-warning" href="/compras">Regresar a la Página Principal</a>
             <div>
-                <button type="submit" class="btn btn-success">Agregar</button>
-                <a class="btn btn-danger" href="/">Cancelar</a>
+                <button type="submit" class="btn btn-success">Registrar proveedor</button>
             </div>
         </div>
     </form>

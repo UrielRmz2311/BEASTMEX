@@ -42,24 +42,17 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($alltickets as $item)   
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$item->fechaingreso}}</td>
+                                <td>{{$item->nombrecliente}}</td>
+                                <td>{{$item->nombrepro}}</td>
+                                <td>{{$item->marca}}</td>
+                                <td>{{$item->cantidad}}</td>
+                                <td>{{$item->precio}}</td>
+                                <td>{{$item->totaldecompra}}</td>
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>                    
                 </div>

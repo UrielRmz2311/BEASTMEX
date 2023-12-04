@@ -38,18 +38,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($allventas as $item)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$item->nombrepro}}</td>
+                                <td>{{$item->ticket}}</td>
+                                <td>{{$item->cantidad}}</td>
+                                <td>{{$item->totaldeventa}}</td>
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>                    
                 </div>
@@ -61,4 +57,4 @@
 </div>
 
     
-@endsection
+@endsection1
