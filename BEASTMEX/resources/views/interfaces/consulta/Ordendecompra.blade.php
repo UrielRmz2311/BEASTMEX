@@ -106,7 +106,7 @@ h2{
                                 } else {
                                     $.ajax({
                                         type: 'GET',
-                                        url: '{{ route('buscar') }}',
+                                        url: '{{ route('buscarp') }}',
                                         data: {
                                             searchTerm: searchTerm
                                         },

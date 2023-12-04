@@ -62,7 +62,8 @@ Route::resource('gananciasporventa',GananciasdeventaController::class);
 Route::resource('gananciaspormes',GananciapormesController::class);
 Route::resource('ordendecompra',OrdendecompraController::class);
 Route::get('Registrorden',[OrdendecompraController::class,'registro']);
-Route::get('/buscar', [OrdendecompraController::class,'buscar'])->name('buscar');
+Route::get('/buscarp', [OrdendecompraController::class,'buscar'])->name('buscarp');
+Route::get('/buscaru', [UsuarioController::class,'buscar'])->name('buscaru');
 
 
 
