@@ -18,6 +18,7 @@ h2{
     text-align: center;
 }
 </style>
+
 <div class="modal fade" id="AgUsu" tabindex="-1" aria-labelledby="AgregarUsuario" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -221,7 +222,7 @@ h2{
             <a class="btn btn-warning" href="/gerente">Regresar a la Página Principal</a>
             <div>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AgUsu">Agregar</button>
-            </div>
+          </div>
         </div>
 </div>
     
