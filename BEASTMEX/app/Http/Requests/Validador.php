@@ -47,8 +47,8 @@ class Validador extends FormRequest
     {
         return [
             'txtNombre' => 'required',
-            'txtContra' => 'required',
-            'txtCorreo' => 'required',
+            'txtContra' => 'required|max:8',
+            'txtCorreo' => 'required|email',
             'txtPuesto' => 'required'
         ];
     }
@@ -56,8 +56,8 @@ class Validador extends FormRequest
     {
         return [
             'txtNom' => 'required',
-            'txtCon' => 'required',
-            'txtCor' => 'required',
+            'txtCon' => 'required|max:8',
+            'txtCor' => 'required|email',
             'txtPue' => 'required'
         ];
     }
@@ -73,8 +73,6 @@ class Validador extends FormRequest
         return [
             'txtProvee' => 'required',
             'txtDirec' => 'required',
-            'txtProduc' => 'required',
-            'txtCant' => 'required'
         ];
     }
     public function ruleslogin(): array

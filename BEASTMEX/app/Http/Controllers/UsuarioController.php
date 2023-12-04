@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Validador;
 use App\Models\usuario;
 use Illuminate\Http\Request;
 
@@ -27,8 +28,9 @@ class UsuarioController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Validador $request)
     {
+        $validatedData = $request->validate($request->rulesFormulario3());
         $addUsuario= new usuario();
         $addUsuario->nombre=$request->txtNom;
         $addUsuario->contraseña=$request->txtCon;
@@ -41,8 +43,9 @@ class UsuarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Validador $request, $id)
     {
+        $validatedData = $request->validate($request->rulesFormulario3());
         $UpUsuario= usuario::find($id);
         $UpUsuario->nombre=$request->txtNombre;
         $UpUsuario->contraseña=$request->txtContra;

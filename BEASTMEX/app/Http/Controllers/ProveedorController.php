@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\proveedor;
 use Illuminate\Http\Request;
+use App\Http\Requests\Validador;
 
 class ProveedorController extends Controller
 {
@@ -12,7 +13,8 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        //
+        $allproveers= proveedor::all();
+        return view('interfaces.consulta.ConsultaProveedores',compact('allproveers'));
     }
 
     /**
@@ -26,40 +28,40 @@ class ProveedorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    
+    public function store(Validador $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(proveedor $proveedor)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(proveedor $proveedor)
-    {
-        //
+        $validatedData = $request->validate($request->rulesFormulario5());
+        $addProveedor= new proveedor();
+        $addProveedor->nombre=$request->txtProvee;
+        $addProveedor->direccion=$request->txtDirec;
+        $addProveedor->save();
+        
+        return redirect()->back();
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, proveedor $proveedor)
+    public function update(Validador $request, $id)
     {
-        //
+        $validatedData = $request->validate($request->rulesFormulario4());
+        $UpProveedor= proveedor::find($id);
+        $UpProveedor->nombre=$request->txtProv;
+        $UpProveedor->direccion=$request->txtDir;
+        $UpProveedor->update();
+        
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(proveedor $proveedor)
+    public function destroy($id)
     {
-        //
+        $dlProveedor= proveedor::find($id);
+        $dlProveedor->delete();
+
+        return redirect()->back();
     }
 }

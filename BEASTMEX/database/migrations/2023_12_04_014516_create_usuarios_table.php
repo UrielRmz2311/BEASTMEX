@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('contraseña');
-            $table->string('correo')->unique();
+            $table->string('correo');
             $table->string('puesto');
             $table->softDeletes();
             $table->timestamps();
