@@ -6,51 +6,106 @@ use App\Http\Requests\Validador;
 use Illuminate\Support\Facades\Redirect;
 
 class Controlador extends Controller
-{
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{  
+    public function metodoInicio(){
+        return view('Login');
+    }
+    public function metodologin(Validador $req){
+        $validatedData = $req->validate($req->ruleslogin());
+        $correo = $req->input('txtusuario');
+        
+        if (strpos($correo, '.gerente') !== false) {
+            return view('interfaces.inicio.iniciogerente');
+        } elseif (strpos($correo, '.almacen') !== false) {
+            return view('inicioalmacen');
+        } elseif (strpos($correo, '.compras') !== false) {
+            return view('iniciocompras');
+        } elseif (strpos($correo, '.ventas') !== false) {
+            return view('inicioventas');
+        } else {
+            // Si no tiene ninguna extensión específica
+            return redirect('/')->with('mensaje', 'El usuario no es válido. Favor de inténtalo de nuevo !!!');
+        }
+    }
+    public function mostrarFormulario()
+    {
+        return view('interfaces.registros.RegistroUsuarios');
+    }
+    public function mostrarAviso()
+    {
+        return view('interfaces.solodireccion.OlvidemiContrasena');
+    }
+    public function ConsultaCGeren()
+    {
+        return view('interfaces.consulta.Consulta-Compras-G');
+    }
+    public function ConsultaVGeren()
+    {
+        return view('interfaces.consulta.Consulta-Ventas-G');
+    }
+    public function ReportesCVGeren()
+    {
+        return view('interfaces.consulta.Reportes-Ven-Com-G');
+    }
+    public function ConsultaProduA()
+    {
+        return view('interfaces.consulta.Consulta-Productos-A');
+    }
+    public function ConsultaProduAA()
+    {
+        return view('interfaces.consulta.Consulta-Productos-AA');
+    }
+    public function ConsultaProduC()
+    {
+        return view('interfaces.consulta.Consulta-Productos-C');
+    }
+    public function mostrarFormularioPro()
+    {
+        return view('interfaces.registros.Registro-Producto-A');
+    }
+    public function mostrarFormularioProd()
+    {
+        return view('interfaces.registros.Registro-Producto-AA');
+    }
+    public function FormularioProveedores(){
+        return view ('interfaces.registros.FormProveedores');
+    }
+    public function ConUsuarios(){
+        return view ('interfaces.consulta.ConsultaUsuarios');
+    }
+    public function ConProveedores(){
+        return view ('interfaces.consulta.ConsultaProveedores');
+    }
+    public function Conticket(){
+        return view ('interfaces.consulta.ConsultaTicket');
+    }
+    public function Ticketsventa(){
+        return view ('interfaces.consulta.TicketsVenta');
+    }
+    public function ConTickets(){
+        return view ('interfaces.consulta.ConsultaTickets');
+    }
+    public function GananciaVenta(){
+        return view ('interfaces.consulta.GananciasVentas');
+    }
+    public function metodoalmacen(){
+        return view('interfaces.solodireccion.almacen');
+    }
+    public function metodoinialmacen(){
+        return view('interfaces.inicio.inicioalmacen');
+    }
+    public function metodogerente(){
+        return view('interfaces.inicio.iniciogerente');
+    }
+    public function metodocompras(){
+        return view('iniciocompras');
+    }
+    public function metodoventass(){
+        return view('inicioventas');
+    }
 
     
-/*     public function mostrarFormulario()
-    {
-        return view('RegistroUsuarios');
-    }
+/*     
 
     public function guardarUsuario(Validador $req){
         $Usuario=$req->input("txtnombre");
@@ -70,42 +125,8 @@ class Controlador extends Controller
 
         return redirect('/CVG')->with('Confirmacion','Venta eliminada correctamente');
     }
-    public function mostrarAviso()
-    {
-        return view('OlvidemiContrasena');
-    }
-    public function ConsultaCGeren()
-    {
-        return view('Consulta-Compras-G');
-    }
-      public function ConsultaVGeren()
-    {
-        return view('Consulta-Ventas-G');
-    }
-    public function ReportesCVGeren()
-    {
-        return view('Reportes-Ven-Com-G');
-    }
-    public function ConsultaProduA()
-    {
-        return view('Consulta-Productos-A');
-    }
-    public function ConsultaProduAA()
-    {
-        return view('Consulta-Productos-AA');
-    }
-    public function ConsultaProduC()
-    {
-        return view('Consulta-Productos-C');
-    }
-    public function mostrarFormularioPro()
-    {
-        return view('Registro-Producto-A');
-    }
-    public function mostrarFormularioProd()
-    {
-        return view('Registro-Producto-AA');
-    }
+    
+    
     public function rulesFormRegisProd(Validador $req){
         $Producto=$req->input("txtProducto");
         $validatedData = $req->validate($req->rulesFormRegisProd());
@@ -159,28 +180,6 @@ class Controlador extends Controller
         return redirect('/CCG')->with('Confirmacion','Compra eliminada correctamente');
     }
 
-    public function FormularioProveedores(){
-        return view ('FormProveedores');
-    }
-    public function ConUsuarios(){
-        return view ('ConsultaUsuarios');
-    }
-    public function ConProveedores(){
-        return view ('ConsultaProveedores');
-    }
-    public function Conticket(){
-        return view ('ConsultaTicket');
-    }
-    public function Ticketsventa(){
-        return view ('TicketsVenta');
-    }
-    public function ConTickets(){
-        return view ('ConsultaTickets');
-    }
-    public function GananciaVenta(){
-        return view ('GananciasVentas');
-    }
-
     public function RegistroProv(Validador $req){
 
         $validatedData = $req->validate($req->rulesFormulario1());
@@ -222,45 +221,7 @@ class Controlador extends Controller
         return redirect('/conusu')->with('confirmacion7','Usuario agregado correctamente');
     }
 
-    public function metodoInicio(){
-        return view('Login');
-    }
-
-    public function metodoalmacen(){
-        return view('almacen');
-    }
-
-    public function metodoinialmacen(){
-        return view('inicioalmacen');
-    }
     
-    public function metodogerente(){
-        return view('iniciogerente');
-    }
 
-    public function metodocompras(){
-        return view('iniciocompras');
-    }
-
-    public function metodoventass(){
-        return view('inicioventas');
-    }
-
-    public function metodoLogin(Validador $req){
-        $validatedData = $req->validate($req->ruleslogin());
-        $correo = $req->input('txtusuario');
-        
-        if (strpos($correo, '.gerente') !== false) {
-            return view('iniciogerente');
-        } elseif (strpos($correo, '.almacen') !== false) {
-            return view('inicioalmacen');
-        } elseif (strpos($correo, '.compras') !== false) {
-            return view('iniciocompras');
-        } elseif (strpos($correo, '.ventas') !== false) {
-            return view('inicioventas');
-        } else {
-            // Si no tiene ninguna extensión específica
-            return redirect('/')->with('mensaje', 'El usuario no es válido. Favor de inténtalo de nuevo !!!');
-        }
-    } */
+     */
 }
