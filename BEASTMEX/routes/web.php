@@ -3,6 +3,7 @@
 //Impoortaciones
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controlador;
+use App\Http\Controllers\UsuarioController;
 
 
 
@@ -51,6 +52,7 @@ use App\Http\Controllers\Controlador;
 
 //Rutas Joni
 
+Route::resource('usuario',UsuarioController::class);
 
 
 
