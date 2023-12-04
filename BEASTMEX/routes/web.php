@@ -3,15 +3,15 @@
 //Impoortaciones
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controlador;
+use App\Http\Controllers\ConsultadeticketdeventaController;
+use App\Http\Controllers\ConsultadeventaController;
+use App\Http\Controllers\GananciapormesController;
+use App\Http\Controllers\GananciasdeventaController;
+use App\Http\Controllers\OrdendecompraController;
+use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\TicketdeventaController;
 use App\Http\Controllers\UsuarioController;
-
-
-
-
-
-
-
-
 
 
 
@@ -22,8 +22,8 @@ use App\Http\Controllers\UsuarioController;
 
 //Rutas Alan
 
-
-
+Route::get('/', [Controlador::class,'metodoInicio']);
+Route::post('/Inicio', [Controlador::class,'metodoLogin'])->name('Inicio');
 
 
 
