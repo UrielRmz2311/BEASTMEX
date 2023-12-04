@@ -274,9 +274,10 @@ h2{
                                                 <button type="button" class="btn btn-secondary m-1">
                                                     <i class="bi bi-envelope"></i> - Enviar a email 
                                                 </button>
-                                                <button type="button" class="btn btn-warning m-1">
+                                                <a href="{{ route('generar.pdf', $ordenes->first()->id) }}" class="btn btn-warning m-1" target="_blank">
                                                     <i class="bi bi-file-earmark-pdf"></i> - Descargar PDF
-                                                </button>
+                                                </a>
+                                                
                                             </ul>
                                           </div>    
                                          

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\ordendecompra;
 use Illuminate\Http\Request;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class OrdendecompraController extends Controller
 {
@@ -90,6 +92,30 @@ class OrdendecompraController extends Controller
                                     ->get();
 
         return response()->json($resultados);
+    }
+    public function generarPDF($id)
+    {
+        // Obtener los datos de la orden de compra
+        $allorders = ordendecompra::find($id);
+
+        // Crear el contenido HTML para el PDF
+        $html = view('interfaces.consulta.Ordendecompra', compact('allorders'));
+
+        // Configurar Dompdf
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+
+        // Crear una instancia de Dompdf
+        $dompdf = new Dompdf($options);
+
+        // Cargar el contenido HTML en Dompdf
+        $dompdf->loadHtml($html);
+
+        // Renderizar el PDF
+        $dompdf->render();
+
+        // Descargar el PDF generado
+        return $dompdf->stream('orden_compra.pdf');
     }
 
 }

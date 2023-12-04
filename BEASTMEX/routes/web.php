@@ -65,6 +65,8 @@ Route::get('Registrorden',[OrdendecompraController::class,'registro']);
 Route::get('/buscarp', [OrdendecompraController::class,'buscar'])->name('buscarp');
 Route::get('/buscaru', [UsuarioController::class,'buscar'])->name('buscaru');
 Route::get('/buscarpr', [ProveedorController::class,'buscar'])->name('buscarpr');
+Route::get('/generar-pdf/{id}',[OrdendecompraController::class,'generarPDF'])->name('generar.pdf');
+
 
 
 
