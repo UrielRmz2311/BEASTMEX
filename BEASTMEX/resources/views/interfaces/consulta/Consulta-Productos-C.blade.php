@@ -248,10 +248,10 @@ h2{
             </div>
         </div>
     </div>
-    <script>
-        function generarPdf(id) {
-            window.open('{{ url("/generar-pdf-producto") }}/' + id, '_blank');
-        }
-    </script>
 </tbody>
+<script>
+    function generarPdf(id) {
+        window.open('{{ url("/generar-pdf-producto") }}/' + id, '_blank');
+    }
+</script>
 @endsection

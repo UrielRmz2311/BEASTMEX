@@ -41,7 +41,9 @@ class Controlador extends Controller
 
 //finespacio Joni
 //espacios jessi
-
+public function metodoinialmacen(){
+    return view('interfaces.inicio.inicioalmacen');
+}
 
 
 

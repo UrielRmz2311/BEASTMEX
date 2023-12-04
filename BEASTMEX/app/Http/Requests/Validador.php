@@ -110,7 +110,7 @@ class Validador extends FormRequest
             'cantidad'=>'required|numeric',
             'costo'=>'required|numeric',
             'fecha'=>'required|date',
-            'foto'=>'required'
+            'foto'=>'required|image'
         ];
     }
     public function rulesFormRegisProdu(): array

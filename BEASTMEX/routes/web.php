@@ -12,7 +12,8 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\TicketdeventaController;
 use App\Http\Controllers\UsuarioController;
-
+use App\Models\producto;
+use Barryvdh\DomPDF\Facade\pdf as PDF;
 
 
 
@@ -103,6 +104,7 @@ Route::get('/generar-pdf-producto/{id}',function (Request $request, $id)
 
     return $pdf->download('producto_' . $allProduct->noserie . '.pdf');
 });
+
 
 
 

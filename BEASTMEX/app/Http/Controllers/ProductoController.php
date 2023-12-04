@@ -16,14 +16,13 @@ class ProductoController extends Controller
     public function ConsultaProduC()
     {
         $allProduct=producto::all();
-        return view('interfaces.consulta.Consulta-Productos-C',compact('allProduct'));
+        return view('interfaces.consulta.Consulta-Productos-AA',compact('allProduct'));
     }
 
     public function Registro()
     {
         return view('interfaces.registros.Registro-Producto-A');
     }
-
     public function index()
     {
         $allProduct=producto::all();
@@ -52,7 +51,7 @@ class ProductoController extends Controller
         $allProduct->fechaingreso=$request->txtfech;
         $allProduct->fotoproducto=$request->txtfoto;
         $allProduct->save();
-        return redirect()->back()->with("Confirmacion77", "El producto se ha agregado correctamente");;
+        return redirect()->back()->with("Confirmacion77", "El producto se ha agregado correctamente");
     }
 
     /**
