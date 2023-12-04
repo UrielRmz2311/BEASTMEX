@@ -129,4 +129,5 @@ Route::get('/generar-pdf-producto/{id}',function (Request $request, $id)
 
 
 
+
 //Fin de rutas Jessy

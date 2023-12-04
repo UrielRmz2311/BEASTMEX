@@ -18,6 +18,98 @@ h2{
     text-align: center;
 }
 </style>
+
+
+<div class="modal fade" id="ModificarInfo" tabindex="-1" aria-labelledby="ModificarInformacion" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarModalLabel">Editar Información</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if (session()->has('confirmacion2'))
+                    <script>
+                        Swal.fire(
+                        'Todo Correcto',
+                        '{!! session('confirmacion2') !!}',
+                        'success'
+                        ) 
+                    </script>
+                @endif
+
+                @if($errors->any())
+                    <script>
+                        Swal.fire(
+                            'El usuario no se guardo, verifica los datos...',
+                            '{{$errors->first()}}',
+                            'warning'
+                        )
+                    </script>
+                @endif
+                <form method="POST" action="{{route('usuario.update',$item->id)}}">
+                    @csrf
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-control" name="txtNombre" placeholder="Nombre" value="{{ old('txtNombre')}}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" name="txtContra" placeholder="Contraseña" value="{{ old('txtContra')}}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Correo electronico</label>
+                        <input type="text" class="form-control" name="txtCorreo" placeholder="Correo electronico" value="{{ old('txtCorreo')}}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Puesto</label>
+                        <select class="form-select" name="txtPuesto" value="{{ old('txtPuesto')}}">
+                            <option value="Gerente">Gerente</option>
+                            <option value="Almacen">Almacen</option>
+                            <option value="Ventas">Ventas</option>
+                            <option value="Compras">Compras</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="EliUsu" tabindex="-1" aria-labelledby="EliminarUsuario" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarModalLabel">Eliminar Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if (session()->has('confirmacion3'))
+                    <script>
+                    Swal.fire(
+                    'Todo Correcto',
+                    '{!! session('confirmacion3') !!}',
+                    'success'
+                    ) 
+                    </script>
+                @endif
+                <form method="POST" action="/EliminarUsu" class="text-center">
+                    @csrf
+                    <label>¿Seguro que desea eliminar al usuario? </label>
+                    <div class="modal-footer mt-4">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Eliminar Usuario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="AgUsu" tabindex="-1" aria-labelledby="AgregarUsuario" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -226,7 +318,7 @@ h2{
             <a class="btn btn-warning" href="/InicioGerente">Regresar a la Página Principal</a>
             <div>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AgUsu">Agregar</button>
-            </div>
+          </div>
         </div>
 </div>
 

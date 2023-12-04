@@ -49,25 +49,10 @@ class UsuarioController extends Controller
         return redirect()->back()->with("Confirmacion", "El usuario se ha agregado correctamente");
     }
     /**
-     * Display the specified resource.
-     */
-    public function show(usuario $usuario)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(usuario $usuario)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Validador $request, $id)
+
     {
         $validatedData = $request->validate($request->rulesFormulario2());
         $UpUsuario = usuario::find($id);
