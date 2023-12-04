@@ -12,7 +12,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        $allusers= usuario::all();
+        return view('interfaces.consulta.ConsultaUsuarios',compact('allusers'));
     }
 
     /**
@@ -28,7 +29,14 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $addUsuario= new usuario();
+        $addUsuario->nombre=$request->txtNom;
+        $addUsuario->contraseña=$request->txtCon;
+        $addUsuario->correo=$request->txtCor;
+        $addUsuario->puesto=$request->txtPue;
+        $addUsuario->save();
+        
+        return redirect()->back();
     }
 
     /**

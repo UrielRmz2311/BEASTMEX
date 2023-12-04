@@ -139,7 +139,7 @@ h2{
                         )
                     </script>
                 @endif
-                <form method="POST" action="/AgregarUsu">
+                <form method="POST" action="{{ route('usuario.store')}}">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Nombre</label>
@@ -191,30 +191,119 @@ h2{
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($allusers as $item)
+                            <div class="modal fade" id="update{{$item->id}}" tabindex="-1" aria-labelledby="ModificarInformacion" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editarModalLabel">Editar Información</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @if (session()->has('confirmacion2'))
+                                                <script>
+                                                    Swal.fire(
+                                                    'Todo Correcto',
+                                                    '{!! session('confirmacion2') !!}',
+                                                    'success'
+                                                    ) 
+                                                </script>
+                                            @endif
+                            
+                                            @if($errors->any())
+                                                <script>
+                                                    Swal.fire(
+                                                        'El usuario no se guardo, verifica los datos...',
+                                                        '{{$errors->first()}}',
+                                                        'warning'
+                                                    )
+                                                </script>
+                                            @endif
+                                            <form method="POST" action="/ModificarUsu">
+                                                @csrf
+                                                <div class="mb-3">
+                                                    <label class="form-label">Nombre</label>
+                                                    <input type="text" class="form-control" name="txtNombre" placeholder="Nombre" value="{{ old('txtNombre')}}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Contraseña</label>
+                                                    <input type="password" class="form-control" name="txtContra" placeholder="Contraseña" value="{{ old('txtContra')}}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Correo electronico</label>
+                                                    <input type="text" class="form-control" name="txtCorreo" placeholder="Correo electronico" value="{{ old('txtCorreo')}}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Puesto</label>
+                                                    <select class="form-select" name="txtPuesto" value="{{ old('txtPuesto')}}">
+                                                        <option value="Gerente">Gerente</option>
+                                                        <option value="Almacen">Almacen</option>
+                                                        <option value="Ventas">Ventas</option>
+                                                        <option value="Compras">Compras</option>
+                                                    </select>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="modal fade" id="destroy{{$item->id}}" tabindex="-1" aria-labelledby="EliminarUsuario" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editarModalLabel">Eliminar Usuario</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @if (session()->has('confirmacion3'))
+                                                <script>
+                                                Swal.fire(
+                                                'Todo Correcto',
+                                                '{!! session('confirmacion3') !!}',
+                                                'success'
+                                                ) 
+                                                </script>
+                                            @endif
+                                            <form method="POST" action="/EliminarUsu" class="text-center">
+                                                @csrf
+                                                <label>¿Seguro que desea eliminar al usuario? </label>
+                                                <div class="modal-footer mt-4">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                    <button type="submit" class="btn btn-primary">Eliminar Usuario</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <tr>
-                                <td>Jessica Alejandra Barradas Breton</td>
-                                <td>12345678</td>
-                                <td>Jessica.G@gmail.com</td>
-                                <td>Gerente</td>
+                                <td>{{$item->nombre}}</td>
+                                <td>{{$item->contraseña}}</td>
+                                <td>{{$item->correo}}</td>
+                                <td>{{$item->puesto}}</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-list-stars"></i> Opciones
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <button type="button" class="btn btn-warning m-1" data-bs-toggle="modal" data-bs-target="#update{{$item->id}}">
+                                                <i class="bi bi-pencil-square"></i> - Editar 
+                                              </button>
+                                            <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#destroy{{$item->id}}">
+                                                <i class="bi bi-trash"></i> - Borrar 
+                                              </button>
+                                        </ul>
+                                      </div>    
+                                     
+                                </td>
                             </tr>
-                            <tr>
-                                <td>Alan Uriel Ramirez Labastida</td>
-                                <td>01234567</td>
-                                <td>Alan.A@gmail.com</td>
-                                <td>Almacen</td>
-                            </tr>
-                            <tr>
-                                <td>Jonathan Raul Bocanegra Leyva</td>
-                                <td>1783964</td>
-                                <td>Jonathan.V@gmail.com</td>
-                                <td>Ventas</td>
-                            </tr>
-                            <tr>
-                                <td>Elias Mayor Carrasquero</td>
-                                <td>07080912</td>
-                                <td>Elias.C@gmail.com</td>
-                                <td>Compras</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     
@@ -225,9 +314,7 @@ h2{
             <a class="btn btn-warning" href="/gerente">Regresar a la Página Principal</a>
             <div>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AgUsu">Agregar</button>
-                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ModificarInfo">Modificar</button>
-                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#EliUsu">Eliminar</a>
-            </div>
+          </div>
         </div>
 </div>
     
