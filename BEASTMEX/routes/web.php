@@ -58,6 +58,8 @@ Route::get('Registroproveedor',[ProveedorController::class,'registro']);
 Route::resource('ticketventa',TicketdeventaController::class);
 Route::resource('consultaventa',ConsultadeventaController::class);
 Route::resource('consultatickets',ConsultadeticketdeventaController::class);
+Route::resource('gananciasporventa',GananciasdeventaController::class);
+Route::resource('gananciaspormes',GananciapormesController::class);
 
 
 

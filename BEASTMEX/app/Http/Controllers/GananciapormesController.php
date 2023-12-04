@@ -12,7 +12,23 @@ class GananciapormesController extends Controller
      */
     public function index()
     {
-        //
+        $allganancia= gananciapormes::all();
+        return view('interfaces.consulta.GananciasVentasMes',compact('allganancia'));
+    }
+    public function guardarGanancia(Request $request)
+    {
+        $ganancia = $request->input('ganancia');
+        $ventaGenerada = $request->input('ventaGenerada');
+    
+        // Guardar $ganancia en tu modelo y base de datos
+        // Ejemplo:
+        $gananciaModel = new gananciapormes();
+        $gananciaModel->ganancia = $ganancia;
+        $gananciaModel->venta_generada = $ventaGenerada;
+        $gananciaModel->save();
+    
+        // Puedes enviar una respuesta al cliente si es necesario
+        return response()->json(['message' => 'Ganancia guardada correctamente']);
     }
 
     /**

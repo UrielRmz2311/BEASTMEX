@@ -21,7 +21,7 @@
 
 
 <div class="contenedor mt-4">
-    <h2>Cálculo de Ganancias por venta</h2>
+    <h2>Cálculo de Ganancias por mes</h2>
 
         <div class="container mt-4">
             <div class="row">
@@ -39,10 +39,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($allganancias as $item)
+                            @foreach ($allganancia as $item)
                             <tr>
                                 <td class="ventaGenerada">{{$item->venta_generada}}</td>
-                                <td><span class="ganancia">0</span></td>
+                                <td><span class="ganancia">{{$item->ganancia}}</span></td>
                                 <td><button class="calcularGanancia">Calcular Ganancia</button></td>
                             </tr>
                             @endforeach

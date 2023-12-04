@@ -12,9 +12,24 @@ class GananciasdeventaController extends Controller
      */
     public function index()
     {
-        //
+        $allganancias= gananciasdeventa::all();
+        return view('interfaces.consulta.GananciasVentas',compact('allganancias'));
     }
-
+    public function guardarGanancia(Request $request)
+    {
+        $ganancia = $request->input('ganancia');
+        $ventaGenerada = $request->input('ventaGenerada');
+    
+        // Guardar $ganancia en tu modelo y base de datos
+        // Ejemplo:
+        $gananciaModel = new gananciasdeventa();
+        $gananciaModel->ganancia = $ganancia;
+        $gananciaModel->venta_generada = $ventaGenerada;
+        $gananciaModel->save();
+    
+        // Puedes enviar una respuesta al cliente si es necesario
+        return response()->json(['message' => 'Ganancia guardada correctamente']);
+    }
     /**
      * Show the form for creating a new resource.
      */
