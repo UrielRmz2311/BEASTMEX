@@ -52,7 +52,7 @@ h2{
         </div>
         
         <div class="d-flex justify-content-between">
-            <a class="btn btn-warning" href="/compras">Regresar a la Página Principal</a>
+            <a class="btn btn-warning" href="/InicioCompras">Regresar a la Página Principal</a>
             <div>
                 <button type="submit" class="btn btn-success">Registrar proveedor</button>
             </div>

@@ -35,7 +35,7 @@
           <img src="{{ asset('images/proveedor.jpg') }}" height="225" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Registro de Proveedor</h5>
-            <a href="/prov" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="Registroproveedor" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@
           <img src="{{ asset('images/consultap.jpg') }}" height="225" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title text-center">Consulta de Proveedor</h5>
-            <a href="/conprov" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
+            <a href="proveedor" class="btn btn-warning fw-bold" style="display: block; margin: 0 auto;">Entrar</a>
           </div>
         </div>
       </div>

@@ -19,6 +19,8 @@ h2{
 }
 </style>
 
+
+<h1 class="display-1 fw-bold text-center text-warning mt-2">CONSULTA PROVEEDOR</h1>
 <div class="modal fade" id="AgProv" tabindex="-1" aria-labelledby="AgregarProveedor" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -27,11 +29,11 @@ h2{
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                @if (session()->has('confirmacion7'))
+                @if (session()->has('confirmacion'))
                     <script>
                         Swal.fire(
                         'Todo Correcto',
-                        '{!! session('confirmacion7') !!}',
+                        '{!! session('confirmacion') !!}',
                         'success'
                         ) 
                     </script>
@@ -127,7 +129,9 @@ h2{
                             <tr>
                                 <th>Proveedor</th>
                                 <th>Direccion</th>
+
                                 <th></th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -190,11 +194,19 @@ h2{
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
+
                                             @if (session()->has('confirmacion6'))
                                                 <script>
                                                 Swal.fire(
                                                 'Todo Correcto',
                                                 '{!! session('confirmacion6') !!}',
+
+                                            @if (session()->has('confirmacion66'))
+                                                <script>
+                                                Swal.fire(
+                                                'Todo Correcto',
+                                                '{!! session('confirmacion66') !!}',
+
                                                 'success'
                                                 ) 
                                                 </script>
@@ -240,7 +252,7 @@ h2{
             </div>
         </div>
         <div class="d-flex justify-content-between">
-            <a class="btn btn-warning" href="/compras">Regresar a la Página Principal</a>
+            <a class="btn btn-warning" href="/InicioCompras">Regresar a la Página Principal</a>
             <div>
                 <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AgProv">Agregar</button>
             </div>

@@ -43,6 +43,7 @@ class Validador extends FormRequest
             'txtDireccion' => 'required'
         ];
     }
+
     public function rulesFormulario2(): array
     {
         return [
@@ -61,6 +62,7 @@ class Validador extends FormRequest
             'txtPue' => 'required'
         ];
     }
+
     public function rulesFormulario4(): array
     {
         return [
@@ -74,7 +76,20 @@ class Validador extends FormRequest
             'txtProvee' => 'required',
             'txtDirec' => 'required',
         ];
-    }
+        {
+            return [
+                'txtProv' => 'required',
+                'txtDir' => 'required'
+            ];
+        }
+        public function rulesFormulario5(): array
+        {
+            return [
+                'txtProvee' => 'required',
+                'txtDirec' => 'required',
+            ];
+        }
+
     public function ruleslogin(): array
     {
         return [
@@ -107,7 +122,7 @@ class Validador extends FormRequest
             'cantidad'=>'required|numeric',
             'costo'=>'required|numeric',
             'fecha'=>'required|date',
-            'foto'=>'required'
+            'foto'=>'required|image'
         ];
     }
     public function rulesFormRegisProdu(): array

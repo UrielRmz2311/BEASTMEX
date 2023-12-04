@@ -40,7 +40,7 @@
 
                 <div class="input">
                     <label>Usuario: </label>
-                    <input placeholder="Correo de Usuario" type="text" name="txtusuario">
+                    <input placeholder="Correo de Usuario" type="text" name="txtusuario" value="{{ old('txtusuario')}}">
                     <p class="text-danger fw-bold">{{ $errors->first('txtusuario')}}</p>
                 </div>
                 <div class="input">

@@ -11,6 +11,11 @@ class ProveedorController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function registroproveedor()
+    {
+        return view('interfaces.registros.FormProveedores');
+    } 
+
     public function index()
     {
         $allproveers= proveedor::all();
@@ -71,5 +76,39 @@ class ProveedorController extends Controller
         $resultados = proveedor::where('nombre', 'LIKE', "%$searchTerm%")->get();
 
         return response()->json($resultados);
+=======
+    {
+        $validatedData = $request->validate($request->rulesFormulario5());
+        $addProveedor= new proveedor();
+        $addProveedor->nombre=$request->txtProvee;
+        $addProveedor->direccion=$request->txtDirec;
+        $addProveedor->save();
+        
+        return redirect()->back()->with('confirmacion','Proveedor registrado correctamente');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Validador $request, $id)
+    {
+        $validatedData = $request->validate($request->rulesFormulario4());
+        $UpProveedor= proveedor::find($id);
+        $UpProveedor->nombre=$request->txtProv;
+        $UpProveedor->direccion=$request->txtDir;
+        $UpProveedor->update();
+        
+        return redirect()->back()->with('confirmacion5','Proveedor modificado correctamente');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
+    {
+        $dlProveedor= proveedor::find($id);
+        $dlProveedor->delete();
+
+        return redirect()->back()->with('confirmacion66','Proveedor eliminado correctamente');
     }
 }
