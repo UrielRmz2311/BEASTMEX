@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('preciodeventa', 8, 2);
             $table->date('fechaingreso');
             $table->string('fotoproducto')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
