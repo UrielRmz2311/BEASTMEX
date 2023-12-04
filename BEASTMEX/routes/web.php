@@ -22,8 +22,8 @@ use App\Http\Controllers\UsuarioController;
 
 //Rutas Alan
 
-
-
+Route::get('/', [Controlador::class,'metodoInicio']);
+Route::post('/Inicio', [Controlador::class,'metodoLogin'])->name('Inicio');
 
 
 

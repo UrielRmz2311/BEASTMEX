@@ -79,10 +79,28 @@ class Controlador extends Controller
 
 //fin espacio jessy
 
+//espacio Alan
+public function metodoInicio(){
+    return view('Login');
+}
 
-
-
-
+public function metodoLogin(Validador $req){
+    $validatedData = $req->validate($req->ruleslogin());
+    $correo = $req->input('txtusuario');
+    
+    if (strpos($correo, '.gerente') !== false) {
+        return view('interfaces.inicio.iniciogerente');
+    } elseif (strpos($correo, '.almacen') !== false) {
+        return view('interfaces.inicio.inicioalmacen');
+    } elseif (strpos($correo, '.compras') !== false) {
+        return view('interfaces.inicio.iniciocompras');
+    } elseif (strpos($correo, '.ventas') !== false) {
+        return view('interfaces.inicio.inicioventas');
+    } else {
+        // Si no tiene ninguna extensión específica
+        return redirect('/')->with('mensaje', 'El usuario no es válido. Favor de inténtalo de nuevo !!!');
+    }
+} 
 
 
 
