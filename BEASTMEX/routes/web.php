@@ -59,10 +59,23 @@ Route::post('/Inicio', [Controlador::class,'metodoLogin'])->name('Inicio');
 Route::get('/RegistrarUsuario', [UsuarioController::class,'registrousu']);
 Route::resource('usuario',UsuarioController::class);
 Route::resource('proveedor',ProveedorController::class);
+Route::get('Registroproveedor',[ProveedorController::class,'registro']);
+Route::resource('ticketventa',TicketdeventaController::class);
+Route::resource('consultaventa',ConsultadeventaController::class);
+Route::resource('consultatickets',ConsultadeticketdeventaController::class);
+Route::resource('gananciasporventa',GananciasdeventaController::class);
+Route::resource('gananciaspormes',GananciapormesController::class);
+Route::resource('ordendecompra',OrdendecompraController::class);
+Route::get('Registrorden',[OrdendecompraController::class,'registro']);
+Route::get('/buscarp', [OrdendecompraController::class,'buscar'])->name('buscarp');
+Route::get('/buscaru', [UsuarioController::class,'buscar'])->name('buscaru');
+Route::get('/buscarpr', [ProveedorController::class,'buscar'])->name('buscarpr');
+Route::get('/generar-pdf/{id}',[OrdendecompraController::class,'generarPDF'])->name('generar.pdf');
 Route::get('Registroproveedor',[ProveedorController::class,'registroproveedor']);
 Route::resource('ticketventa',TicketdeventaController::class);
 Route::resource('consultaventa',ConsultadeventaController::class);
 Route::resource('consultatickets',ConsultadeticketdeventaController::class);
+
 
 
 

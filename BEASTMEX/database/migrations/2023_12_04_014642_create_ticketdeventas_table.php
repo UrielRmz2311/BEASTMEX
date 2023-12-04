@@ -15,13 +15,12 @@ return new class extends Migration
             $table->id();
             $table->date('fechaingreso');
             $table->string('nombrecliente');
-            $table->unsignedBigInteger('producto_id');
+            $table->string('nombrepro');
+            $table->string('marca');
             $table->integer('cantidad');
-            $table->unsignedBigInteger('precio');
+            $table->decimal('precio', 8, 2);
             $table->decimal('totaldecompra', 8, 2);
 
-            $table->foreign('producto_id')->references('id')->on('productos');
-            $table->foreign('precio')->references('id')->on('productos');
             $table->timestamps();
         });
     }

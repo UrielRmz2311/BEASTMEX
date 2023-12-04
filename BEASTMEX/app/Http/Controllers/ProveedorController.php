@@ -25,9 +25,9 @@ class ProveedorController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function registro()
     {
-        //
+        return view('interfaces.registros.FormProveedores');
     }
 
     /**
@@ -35,6 +35,48 @@ class ProveedorController extends Controller
      */
     
     public function store(Validador $request)
+    {
+        $validatedData = $request->validate($request->rulesFormulario5());
+        $addProveedor= new proveedor();
+        $addProveedor->nombre=$request->txtProvee;
+        $addProveedor->direccion=$request->txtDirec;
+        $addProveedor->save();
+        
+        return redirect()->back();
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Validador $request, $id)
+    {
+        $validatedData = $request->validate($request->rulesFormulario4());
+        $UpProveedor= proveedor::find($id);
+        $UpProveedor->nombre=$request->txtProv;
+        $UpProveedor->direccion=$request->txtDir;
+        $UpProveedor->update();
+        
+        return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
+    {
+        $dlProveedor= proveedor::find($id);
+        $dlProveedor->delete();
+
+        return redirect()->back();
+    }
+    public function buscar(Request $request)
+    {
+        $searchTerm = $request->input('searchTerm');
+
+        $resultados = proveedor::where('nombre', 'LIKE', "%$searchTerm%")->get();
+
+        return response()->json($resultados);
+=======
     {
         $validatedData = $request->validate($request->rulesFormulario5());
         $addProveedor= new proveedor();

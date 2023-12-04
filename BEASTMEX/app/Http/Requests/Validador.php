@@ -64,6 +64,18 @@ class Validador extends FormRequest
     }
 
     public function rulesFormulario4(): array
+    {
+        return [
+            'txtProv' => 'required',
+            'txtDir' => 'required'
+        ];
+    }
+    public function rulesFormulario5(): array
+    {
+        return [
+            'txtProvee' => 'required',
+            'txtDirec' => 'required',
+        ];
         {
             return [
                 'txtProv' => 'required',

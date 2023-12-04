@@ -34,7 +34,6 @@ class UsuarioController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-
     public function store(Validador $request)
     {
         $validatedData = $request->validate($request->rulesFormulario3());
@@ -54,6 +53,18 @@ class UsuarioController extends Controller
     public function update(Validador $request, $id)
 
     {
+        $validatedData = $request->validate($request->rulesFormulario3());
+        $UpUsuario= usuario::find($id);
+        $UpUsuario->nombre=$request->txtNombre;
+        $UpUsuario->contraseña=$request->txtContra;
+        $UpUsuario->correo=$request->txtCorreo;
+        $UpUsuario->puesto=$request->txtPuesto;
+        $UpUsuario->update();
+        
+        return redirect()->back();
+
+
+    {
         $validatedData = $request->validate($request->rulesFormulario2());
         $UpUsuario = usuario::find($id);
     
@@ -68,6 +79,7 @@ class UsuarioController extends Controller
         $UpUsuario->update();
     
         return redirect()->back()->with('confirmacion2', 'Usuario modificado correctamente');
+
     }
     
     /**
@@ -78,6 +90,16 @@ class UsuarioController extends Controller
         $dlUsuario= usuario::find($id);
         $dlUsuario->delete();
 
+        return redirect()->back();
+    }
+    public function buscar(Request $request)
+    {
+        $searchTerm = $request->input('searchTerm');
+
+        $resultados = usuario::where('nombre', 'LIKE', "%$searchTerm%")->get();
+
+        return response()->json($resultados);
         return redirect()->back()->with('confirmacion3','Usuario eliminado correctamente');;
+
     }
 }
