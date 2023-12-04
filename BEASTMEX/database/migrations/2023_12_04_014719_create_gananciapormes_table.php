@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('gananciapormes', function (Blueprint $table) {
             $table->id();
+            $table->decimal('venta_generada', 8, 2);
+            $table->decimal('ganancia', 8, 2);
+            $table->string('calculo_venta');
             $table->timestamps();
         });
     }

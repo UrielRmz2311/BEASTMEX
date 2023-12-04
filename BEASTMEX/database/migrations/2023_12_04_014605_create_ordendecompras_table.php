@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('ordendecompras', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('proveedor_id');
+            $table->unsignedBigInteger('direccion_proveedor');
+            $table->string('producto');
+            $table->integer('cantidad')->default(1);
+            $table->foreign('proveedor_id')->references('id')->on('proveedores');
+            $table->foreign('direccion_proveedor')->references('id')->on('proveedores');
             $table->timestamps();
         });
     }

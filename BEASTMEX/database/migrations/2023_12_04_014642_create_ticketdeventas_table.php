@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('ticketdeventas', function (Blueprint $table) {
             $table->id();
+            $table->date('fechaingreso');
+            $table->string('nombrecliente');
+            $table->unsignedBigInteger('producto_id');
+            $table->integer('cantidad');
+            $table->unsignedBigInteger('precio');
+            $table->decimal('totaldecompra', 8, 2);
+
+            $table->foreign('producto_id')->references('id')->on('productos');
+            $table->foreign('precio')->references('id')->on('productos');
             $table->timestamps();
         });
     }

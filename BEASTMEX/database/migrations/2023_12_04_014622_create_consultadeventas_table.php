@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('consultadeventas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('producto_id');
+            $table->foreign('producto_id')->references('id')->on('productos');
+            $table->unsignedBigInteger('ticket');
+            $table->foreign('ticket')->references('id')->on('ticketdeventas');
+            $table->integer('cantidad');
+            $table->decimal('totaldeventa', 8, 2);
             $table->timestamps();
         });
     }
