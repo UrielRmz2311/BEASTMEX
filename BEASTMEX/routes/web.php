@@ -81,7 +81,7 @@ use App\Http\Controllers\UsuarioController;
 //Fin de rutas Joni
 
 //Rutas Jessy
-
+Route::resource('productos',ProductoController::class);
 
 
 
