@@ -12,7 +12,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        $allProduct=productos::all();
+        return view('interfaces.consulta.Consulta-Productos-AA',compact('allProduct'));
     }
 
     /**

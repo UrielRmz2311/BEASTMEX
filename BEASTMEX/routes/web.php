@@ -83,7 +83,7 @@ Route::resource('proveedor',ProveedorController::class);
 //Fin de rutas Joni
 
 //Rutas Jessy
-
+Route::resource('productos',ProductoController::class);
 
 
 
