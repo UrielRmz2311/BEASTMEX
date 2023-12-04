@@ -43,7 +43,7 @@
                             <tr>
                                 <td class="ventaGenerada">{{$item->venta_generada}}</td>
                                 <td><span class="ganancia">{{$item->ganancia}}</span></td>
-                                <td><button class="calcularGanancia">Calcular Ganancia</button></td>
+                                <td><button class="calcularGanancia btn btn-primary">Calcular Ganancia</button></td>
                             </tr>
                             @endforeach
                             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
