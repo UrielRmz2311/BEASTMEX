@@ -6,47 +6,10 @@ use App\Http\Requests\Validador;
 use Illuminate\Support\Facades\Redirect;
 
 class Controlador extends Controller
-{
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+{  
+    public function metodoInicio(){
+        return view('Login');
+    }
 /*     public function mostrarFormulario()
     {
         return view('RegistroUsuarios');
