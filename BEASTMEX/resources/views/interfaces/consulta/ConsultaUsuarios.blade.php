@@ -49,7 +49,7 @@ h2{
                         )
                     </script>
                 @endif
-                <form method="POST" action="/ModificarUsu">
+                <form method="POST" action="{{route('usuario.update',$item->id)}}">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Nombre</label>

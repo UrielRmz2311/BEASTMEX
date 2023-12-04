@@ -32,25 +32,9 @@ class UsuarioController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(usuario $usuario)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(usuario $usuario)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, usuario $usuario)
+    public function update(Request $request, $id)
     {
         //
     }
