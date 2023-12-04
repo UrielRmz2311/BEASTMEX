@@ -24,7 +24,7 @@
             <div class="imagen-formulario">
             </div>
 
-            <form class="formulario" method="POST" action="/metodologin">
+            <form class="formulario" method="POST" action="/Inicio">
                 @csrf
                 <div class="texto-formulario">
                     <h2 class="fw-bold font-italic">BIENVENIDO</h2>
