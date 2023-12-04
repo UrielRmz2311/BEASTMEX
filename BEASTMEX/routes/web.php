@@ -52,6 +52,7 @@ Route::post('/Inicio', [Controlador::class,'metodoLogin'])->name('Inicio');
 
 //Rutas Joni
 
+Route::resource('usuario',UsuarioController::class);
 
 
 
