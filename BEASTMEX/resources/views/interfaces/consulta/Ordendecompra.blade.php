@@ -88,36 +88,54 @@ h2{
             <div class="row">
                 <div class="col-lg-12">
                     <div class="input-group mb-3">
-                        <input type="search" class="form-control me-2 ms-auto" style="max-width: 200px;" placeholder="Buscar por nombre" id="searchInput">
+                        <input type="search" class="form-control me-2 ms-auto" style="max-width: 250px;" placeholder="Buscar por nombre de producto" id="searchInput">
                         <button class="btn btn-outline-secondary" type="button" id="searchButton">Buscar</button>
                     </div>
-                    
+                    <div class="table table-bordered table-striped">
+                        <div id="searchResults"></div>
+                    </div>
+
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
                         $(document).ready(function () {
                             $('#searchButton').on('click', function () {
-                                // Obtener el valor del campo de búsqueda
                                 var searchTerm = $('#searchInput').val();
-                    
-                                // Aquí puedes agregar la lógica para realizar la búsqueda con el término ingresado (searchTerm)
-                                // Esto podría implicar hacer una solicitud a tu backend con AJAX o cualquier lógica que necesites para buscar los datos.
-                                // Por ejemplo, si quieres realizar una petición GET a tu servidor, podrías hacer algo como esto:
-                                
-                                // $.ajax({
-                                //     type: 'GET',
-                                //     url: '/tu-ruta-de-busqueda',
-                                //     data: {
-                                //         searchTerm: searchTerm
-                                //     },
-                                //     success: function (response) {
-                                //         // Manejar la respuesta de la búsqueda aquí (actualizar la UI, mostrar resultados, etc.)
-                                //     },
-                                //     error: function (error) {
-                                //         console.error('Error en la búsqueda:', error);
-                                //     }
-                                // });
+
+                                if (searchTerm.trim() === '') {
+                                    $('#searchResults').html('Por favor, ingresa un término de búsqueda');
+                                } else {
+                                    $.ajax({
+                                        type: 'GET',
+                                        url: '{{ route('buscar') }}',
+                                        data: {
+                                            searchTerm: searchTerm
+                                        },
+                                        success: function (response) {
+                                            $('#searchResults').empty();
+
+                                            if (response.length > 0) {
+                                                var resultsHTML = '<ul>';
+                                                response.forEach(function (result) {
+                                                    resultsHTML += '<li><strong>Producto:</strong> ' + result.producto +
+                                                        ', <strong>Cantidad:</strong> ' + result.cantidad +
+                                                        ', <strong>Proveedor:</strong> ' + result.proveedor + '</li>';
+                                                });
+                                                resultsHTML += '</ul>';
+                                                $('#searchResults').html(resultsHTML);
+                                            } else {
+                                                $('#searchResults').html('No se encontraron resultados');
+                                            }
+                                        },
+                                        error: function (error) {
+                                            console.error('Error en la búsqueda:', error);
+                                        }
+                                    });
+                                }
                             });
                         });
+
+
+
                     </script>
                     <table class="table table-bordered table-striped">
                         <thead>

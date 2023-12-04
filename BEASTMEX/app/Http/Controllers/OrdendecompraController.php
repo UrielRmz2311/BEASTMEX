@@ -81,4 +81,15 @@ class OrdendecompraController extends Controller
 
         return redirect()->back();
     }
+    public function buscar(Request $request)
+    {
+        $searchTerm = $request->input('searchTerm');
+
+        $resultados = ordendecompra::where('producto', 'LIKE', "%$searchTerm%")
+                                    ->orWhere('proveedor', 'LIKE', "%$searchTerm%")
+                                    ->get();
+
+        return response()->json($resultados);
+    }
+
 }
